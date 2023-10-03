@@ -1,0 +1,15 @@
+D:\Interview preparation\Programs\AbstractVsInterface\AbstractVsInterface\obj\Debug\net6.0\AbstractVsInterface.csproj.AssemblyReference.cache
+D:\Interview preparation\Programs\AbstractVsInterface\AbstractVsInterface\obj\Debug\net6.0\AbstractVsInterface.GeneratedMSBuildEditorConfig.editorconfig
+D:\Interview preparation\Programs\AbstractVsInterface\AbstractVsInterface\obj\Debug\net6.0\AbstractVsInterface.AssemblyInfoInputs.cache
+D:\Interview preparation\Programs\AbstractVsInterface\AbstractVsInterface\obj\Debug\net6.0\AbstractVsInterface.AssemblyInfo.cs
+D:\Interview preparation\Programs\AbstractVsInterface\AbstractVsInterface\obj\Debug\net6.0\AbstractVsInterface.csproj.CoreCompileInputs.cache
+D:\Interview preparation\Programs\AbstractVsInterface\AbstractVsInterface\bin\Debug\net6.0\AbstractVsInterface.exe
+D:\Interview preparation\Programs\AbstractVsInterface\AbstractVsInterface\bin\Debug\net6.0\AbstractVsInterface.deps.json
+D:\Interview preparation\Programs\AbstractVsInterface\AbstractVsInterface\bin\Debug\net6.0\AbstractVsInterface.runtimeconfig.json
+D:\Interview preparation\Programs\AbstractVsInterface\AbstractVsInterface\bin\Debug\net6.0\AbstractVsInterface.dll
+D:\Interview preparation\Programs\AbstractVsInterface\AbstractVsInterface\bin\Debug\net6.0\AbstractVsInterface.pdb
+D:\Interview preparation\Programs\AbstractVsInterface\AbstractVsInterface\obj\Debug\net6.0\AbstractVsInterface.dll
+D:\Interview preparation\Programs\AbstractVsInterface\AbstractVsInterface\obj\Debug\net6.0\refint\AbstractVsInterface.dll
+D:\Interview preparation\Programs\AbstractVsInterface\AbstractVsInterface\obj\Debug\net6.0\AbstractVsInterface.pdb
+D:\Interview preparation\Programs\AbstractVsInterface\AbstractVsInterface\obj\Debug\net6.0\AbstractVsInterface.genruntimeconfig.cache
+D:\Interview preparation\Programs\AbstractVsInterface\AbstractVsInterface\obj\Debug\net6.0\ref\AbstractVsInterface.dll

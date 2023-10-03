@@ -1,0 +1,993 @@
+
+React creates a virtual DOM. When state changes in a component it firstly runs a “diffing” algorithm
+
+The process of checking the difference between the new VDOM tree and the old VDOM tree is called "diffing".
+
+The second step is reconciliation, where it updates the DOM with the results of diff.
+
+The Virtual DOM is an abstraction of the HTML DOM. It is lightweight 
+and detached from the browser-specific implementation details
+----------
+JSX is a syntax extension to JavaScript and comes with the full power of JavaScript. JSX produces React “elements”. 
+
+After compilation, JSX expressions become regular JavaScript objects. 
+---------
+What is React.createClass?
+React.createClass allows us to generate component "classes."
+
+When using React’s createClass() method, we pass in an object as an argument. 
+
+Instead of using a method from the react library, we extend an ES6 class that the library defines, Component.
+
+constructor() is a special function in a JavaScript class. 
+JavaScript invokes constructor() whenever an object is created via a class.
+
+---------
+ useful feature of ReactDOM is ReactDOM.findDOMNode() which we can use to gain direct access to a DOM element.
+We use React to define and create our elements
+-----------
+What are the differences between a class component and functional component?
+
+Class components allows us to use additional features such as local state and lifecycle hooks.
+ Also, to enable our component to have direct access to our store and thus holds state.
+When our component just receives props and renders them to the page, this is a ‘stateless component’,
+
+ functional component is just a plain JavaScript function that returns JSX. They do not have state or lifecycle methods. Functional components are easier to read, debug, and test. This is why functional components are also commonly referred to as stateless components.
+
+A class component is a JavaScript class that extends React.Component which has a render method. 
+
+import React, { Component } from "react";
+class ClassComponent extends Component {
+ render() {
+   return <h1>Hello, world</h1>;
+ }
+}
+------
+Lifecycle Methods:
+componentDidMount is called right after the first render completes
+
+Replacing componentDidMount, We use the useEffect hook with the second argument of []. The second argument of the useState hook is normally an array of a state(s) that changes, and useEffect will be only called on these selected changes. 
+
+UnMount: 
+we can also use a useState hook for unmounting as well.What you need to do is return a function that runs on unmounting inside the useEffect function.
+-----------
+What is the difference between state and props?
+The state is a data structure that starts with a default value when a Component mounts. 
+
+Props (short for properties) are a Component’s configuration. Props are how components talk to each other. They are received from above component and immutable 
+-----------
+What are controlled components?
+
+A controlled component is a react component that controls the values of input elements in a form using setState() 
+-----------
+What is a higher order component?
+A higher-order component (HOC) is an advanced technique in React for reusing component logic.
+HOCs are common in third-party React libraries
+-----------
+What is create-react-app?
+create-react-app is the official CLI (Command Line Interface) for React to create React apps with no build configuration.
+-----------
+What is Redux?
+
+The basic idea of Redux is that the entire application state is kept in a single store. The store is simply a javascript object. The only way to change the state is by firing actions from your application and then writing reducers for these actions that modify the state.
+All of these data is retained by redux in a closure that redux calls a store . It also provides us a recipe of creating the said store, namely createStore(x).
+ 
+Our App dispatches an action, it is passed into reducer; the reducer returns a fresh instance of the state; 
+-------
+Component Lifecycle of React??
+
+Initialization >	Mounting	 > Updating	 > 	Unmounting
+Initilization
+props & state
+
+ComponentWillMount   ComponentWillReceiceProps  ComponentWillUnMout
+Render		    ShouldComponentUpdate
+ComponentDidMount   Render
+                    ComponentDidUpdate
+
+-------
+
+------
+How to prevent re-renders on React functional components??
+The answer is yes! Use React.memo() to prevent re-rendering on React function components.
+
+What is Redux Thunk used for?
+
+Redux thunk is middleware that allows us to write action creators that return a function instead of an action. 
+To enable Redux Thunk, we need to use applyMiddleware()
+-------
+
+What is PureComponent? When to use PureComponent over Component?
+
+PureComponent is exactly the same as Component except that it handles the 'shouldComponentUpdate' method for us.
+When props or state changes, PureComponent will do a shallow comparison on both props and state.
+the component will re-render by default whenever shouldComponentUpdate is called.
+
+-------
+
+How to avoid multiple re-renders in React??
+shouldComponentUpdate() 
+
+React shouldComponentUpdate is a performance optimization method, and it tells React to avoid re-rendering a component, even if state or prop values may have changed.
+
+The React shouldComponentUpdate method requires you to return a boolean value.
+
+Return true if it needs to re-render or false to avoid being re-render.
+
+
+-------
+When would you use a stateless component??
+When you just need to present the props
+When you don’t need a state, or any internal variables
+When creating element does not need to be interactive
+When you want reusable code
+Stateless components are simple functional component without having a local state 
+
+
+
+When would you use a stateful component?
+When building element that accepts user input
+When dependent on state for rendering, such as, fetching data before rendering
+
+--------
+What is the difference between state and props? 
+Both props and state are plain JavaScript objects. both of them hold information
+-Props get passed to the component similar to function parameters.
+-State is managed within the component similar to variables declared within a function
+
+--------
+What is event pooling in react?
+The SyntheticEvent is pooled. This means that the SyntheticEvent object will be reused and all properties will be nullified after the event callback has been invoked. 
+--------
+What’s the difference between an Element and a Component in React?
+
+Simply put, a React element describes what you want to see on the screen. Not so simply put, a React element is an object representation of some UI.
+
+A React component is a function or a class which optionally accepts input and returns a React element (typically via JSX which gets compiled to a createElement invocation).
+--------
+Why should we not call setState in componentWillUnmount?
+You should not call setState() in componentWillUnmount() because the component will never be re-rendered.
+--------------
+What are React Hooks?
+Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.
+
+--------------
+ ways to sort an array in descending order in C#??
+
+
+        // declaring and initializing the array
+        int[] arr = new int[] {1, 9, 6, 7, 5, 9};
+  
+        // Sort array in ascending order.
+        Array.Sort(arr);
+
+
+--------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------
+S: Single Responsibility Principle (SRP)
+O: Open closed Principle (OCP)
+L: Liskov substitution Principle (LSP)
+I: Interface Segregation Principle (ISP)
+D: Dependency Inversion Principle (DIP)
+
+*SRP says "Every software module should have only one reason to change".
+ *Open/closed Principle says "A software module/class is open for extension and closed for modification".
+*(LSP) states that "you should be able to use any derived class instead of a parent class and have it behave in the same manner without modification".
+*Interface Segregation Principle states "that clients should not be forced to implement interfaces they don't use. Instead of one fat interface, many small interfaces are preferred based on groups of methods, each one serving one submodule."
+*Dependency Inversion Principle (DIP) states that high-level modules/classes should not depend on low-level modules/classes. Both should depend upon abstractions. Secondly, abstractions should not depend upon details.
+
+https://www.qfles.com/interview-question/solid-principles-interview-questions
+--------------
+DI is a subtype of IOC and is implemented by constructor injection, setter injection or method injection.
+
+DI (Dependency injection) is a subset of IOC(Inversion of control).
+
+Dependency Injection (DI) is a software design pattern that allows us to develop loosely coupled code.
+DI is a great way to reduce tight coupling between software components.The purpose of DI is to make code maintainable.
+
+Advantages of Dependency Injection
+Reduces class coupling
+Increases code reusability
+Improves code maintainability
+Make unit testing possible
+
+
+--------------
+override vs overload c#????
+-Overloading is when you have multiple methods in the same scope, with the same name but different signatures.
+
+Overloading (Compile Time Polymorphism):: Functions with same name and different parameters
+
+//Overloading
+public class test
+{
+    public void getStuff(int id)
+    {}
+    public void getStuff(string name)
+    {}
+}
+
+
+
+
+
+
+-Overriding is a principle that allows you to change the functionality of a method in a child class.
+
+Overriding (Run Time Polymorphism):: Functions in the extended class with same name and same parameters as in the base class, but with different behaviors.
+
+//Overriding
+public class test
+{
+        public virtual void getStuff(int id)
+        {
+            //Get stuff default location
+        }
+}
+
+public class test2 : test
+{
+        public override void getStuff(int id)
+        {
+            //base.getStuff(id);
+            //or - Get stuff new location
+        }
+}
+
+
+Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance.
+------
+
+****must VISIT:::::::::: https://www.w3schools.com/cs/cs_inheritance.asp
+
+
+-------
+
+What is Boxing and Unboxing in C#? 
+Boxing and Unboxing both are used for type conversions.
+ 
+The process of converting from a value type to a reference type is called boxing. Boxing is an implicit conversion.
+
+// Boxing  
+int anum = 123;  
+Object obj = anum;  
+Console.WriteLine(anum);  
+Console.WriteLine(obj); 
+
+// Unboxing  
+Object obj2 = 123;  
+int anum2 = (int)obj;  
+Console.WriteLine(anum2);  
+Console.WriteLine(obj);  
+
+
+https://www.c-sharpcorner.com/UploadFile/puranindia/C-Sharp-interview-questions/
+
+https://www.tutorialspoint.com/csharp/csharp_interview_questions.htm
+-------
+
+What is the use of delegates in C#?
+Delegates are used to define callback methods and implement event handling, and they are declared using the “delegate” keyword.
+
+-----
+ What exactly is happening when we make a field a primary key?
+
+ A clustered index will be created for that specific field.
+------------
+
+-------
+A Stored Procedure:
+
+Accepts parameters
+Can NOT be used as building block in a larger query
+Can contain several statements, loops, IF ELSE, etc.
+Can perform modifications to one or several tables
+Can NOT be used as the target of an INSERT, UPDATE or DELETE statement.
+A View:
+
+Does NOT accept parameters
+Can be used as building block in a larger query
+Can contain only one single SELECT query
+Can NOT perform modifications to any table
+But can (sometimes) be used as the target of an INSERT, UPDATE or DELETE statement.
+-------
+
+delegates in c# example???
+what is delegates?
+
+
+A delegate is a type that represents references to methods with a particular parameter list and return type.
+
+Delegates are similar to C++ function pointers, but delegates are fully object-oriented,
+a delegate can be invoked using the Invoke()method or using the () operator.
+Delegates can be used to define callback methods.
+
+public delegate void MyDelegate(string msg);
+[access modifier] delegate [return type] [delegate name]([parameters])
+
+-------- ASP.NET Life Cycle
+General Page Life-Cycle Stages??
+Page REequest
+Start
+Initialization
+Load
+Postback EventHandling
+Rendering
+UnLoad
+-------- Life-Cycle Events??
+PreInit
+Init
+InitComplete
+OnPreLoad
+Load
+PostBack
+LoadComplete
+OnPreRender
+OnSaveStateComplete
+RenderMethod
+UnLoad
+
+--------
+ Abstract class???
+Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+Abstract method: can only be used in an abstract class, and it does not have a body.
+
+Generally, we use abstract class at the time of inheritance.
+It cannot support multiple inheritance.
+--------
+What Is A Constructor In C#?
+The constructor is a special type of method in C# programming language that is called or invoked automatically when an object of the given class is created.
+
+Default
+Parameterized
+
+default constructor is the basic constructor of a class. It does not have any argument and is directly invoked at the time of object creation.
+
+
+parameterized constructors are the constructor with parameters. These constructors are used to pass different values to the objects.
+--------
+
+Destructors In C#????????
+Destructors are just the opposite of constructors.
+ It is a special method of the class that is invoked when a class object goes out of scope. 
+
+Destructor neither accepts any parameter not does it return any value.
+
+prefix of “ ~ ” (tilde).
+-----------
+Static Class In C#??????
+A static class is similar to a normal class in C#. The static class can have only static members and it cannot be instantiated.
+A static class is used to make sure that the class is not instantiated.
+A static class is declared by using the keyword static before the keyword class during the declaration.
+
+----------
+Structs In C#??
+
+ a structure is a value type data type
+A structure can be defined by using the struct keyword. A struct can define a new data type with several different members for the program.
+
+Wherever there is a need to store data, we need to use a struct. On the other hand, if you need to transfer data then it is advisable to use class than a struct.
+
+struct Books {
+   public string title;
+   public string author;
+   public string subject;
+   public int book_id;
+}; 
+
+Unlike classes, structures cannot inherit other structures or classes.
+
+--classes are reference types and structs are value types
+
+On other hand Structure does not support the protected modifier.
+----------
+public : The code is accessible for all classes
+private : The code is only accessible within the same class
+protected : The code is accessible within the same class, or in a class that is inherited from that class.
+internal:	The code is only accessible within its own assembly, but not from another assembly.
+
+
+----------
+Enums In C#??
+Enum is a set of integer constants and similar to a struct it is also a value type entity. 
+
+It is mainly used to declare a list of integers by using the “enum” keyword inside a namespace,
+
+Enum improves the readability and maintainability of the code by providing meaningful names to the constants.
+Enum can include constants such as int, long, short, byte, etc
+By default, the value of enum constants starts with zero
+----------
+Interface??
+Interface in C# is a blueprint of a class. It is like abstract class because all the methods which are declared inside the interface are abstract methods. It cannot have method body and cannot be instantiated.
+
+An interface is a completely "abstract class", which can only contain abstract methods and properties (with empty bodies):
+
+-- Implementation Hiding
+-- Loose Coupling.
+----------
+ C# does not support "multiple inheritance" 
+----------
+
+C# Exceptions???
+C# try and catch
+
+The throw statement allows you to create a custom error.
+ArithmeticException, FileNotFoundException, IndexOutOfRangeException, TimeOutException, etc:
+
+---------
+Which is faster IEnumerable or IQueryable?
+
+Ienumerable fetches the entire data from the database.It fetches the record one by one.It can Read , but cannot modify and update the data.It is the forward only data,we cannot insert the items at the middle. IQueryable : IQueryable fetches the Record based on filter wise. IQueryable is faster than IEnumerable.
+
+
+IEnumerable exists in System.Collections Namespace.
+IQueryable exists in System. Linq Namespace.
+Both IEnumerable and IQueryable are forward collection.
+
+Querying data from a database, IEnumerable execute a select query on the server side, load data in-memory on a client-side and then filter data.
+
+Querying data from a database, IQueryable execute the select query on the server side with all filters.
+
+
+------
+function vs stored procedure???
+ In a function, it is mandatory to use the RETURNS and RETURN arguments, whereas in a stored procedure is not necessary.
+
+ The BEGIN and END blocks are mandatory in a function while the stored procedure do not require them
+
+
+As you can see, the schema name is mandatory to invoke a function:
+select dbo.helloworldfunction()
+
+you cannot call a function from a stored procedure
+
+The main advantage about a function is that it can be reused in code. 
+
+----------
+The key difference between varchar and nvarchar???
+
+The key difference between varchar and nvarchar is the way they are stored, varchar is stored as regular 8-bit data(1 byte per character) and nvarchar stores data at 2 bytes per character. Due to this reason, nvarchar can hold upto 4000 characters and it takes double the space as SQL varchar. 
+--An nvarchar column can store any Unicode data.
+--A varchar column is restricted to an 8-bit codepage.
+
+Querying to NVARCHAR is a bit slower then VARCHAR.
+----------
+
+Common Language Runtime??  
+
+The Common Language Runtime, the virtual machine component of Microsoft .NET Framework, manages the execution of .NET programs.
+----------
+Difference Between dispose() and finalize() in C#?\
+the dispose() method is defined inside the interface IDisposable whereas,
+The main difference between dispose() and finalize() is that the method dispose() has to be explicitly invoked by the user.
+
+the method finalize() is invoked by the garbage collector, just before the object is destroyed
+
+The method dispose( ) is declared as public.
+The method finalize( ) is declared as private.
+
+dispose( ) is used to free unmanaged resources whenever it is invoked.
+
+Method finalize( ) is used to free unmanaged resources before the object is destroyed.
+----------
+Types of array:
+-An Array which contains single row or single column are called as 'single dimensional array'.
+int [ ] arr =new [size];
+
+-these array are stored data in form of rows and columns are calles as 'Multi dimensional Array'.
+[ ,] =new [rows,column];
+
+-'Jagged array' is a collection of rows which may contain distinct number of element in each row .it is collection of single Dimensional Array. This is used for save the memory.
+
+-It means row is working like single dimensional array but column is empty because it works like single dimensional array.
+[ ][ ] =new [size(no of Rows)] [ ];
+
+A jagged array is sometimes called an "array of arrays."
+The length of each array index can differ.
+
+--------
+MVC Life cycle:
+
+Request > URL Routing module > Controller Init > Action Execution
+Result Execuiton > View Engine > Result Filter > RESPONSE
+
+
+--------
+static method in c#??
+
+ A static class can only contain static data members, static methods, and a static constructor.
+It is not allowed to create objects of the static class. Static classes are sealed, means you cannot inherit a static class from another class.
+
+The static methods can only call other static methods and access static members. You cannot access non-static members of the class in the static methods.
+
+ Static methods can be overloaded but not overridden
+----------
+What is the difference between session and cookies?
+Cookies and Sessions are used to store information. Cookies are only stored on the client-side machine, 
+
+A session creates a file in a temporary directory on the server where registered session variables and their values are stored. This data will be available to all pages on the site during that visit.
+
+A session ends when the user closes the browser or after leaving the site, the server will terminate the session after a predetermined period of time, commonly 30 minutes duration.
+
+-Cookies are text files stored on the client computer and they are kept of use tracking purpose. 
+
+The maximum cookie size is 4KB whereas in session, you can store as much data as you like.
+
+Session_destroy(); which is used to destroy all registered data or to unset some
+
+----------
+
+Different types of routing in ASP.NET MVC
+
+Convention based routing -to define this type of routing, we call MapRoute
+Attribute based routing - we specify the Route
+
+
+----------
+What is 'as' Keyword?
+
+'as' is a keyword used for conversion from one type to another. The type can be a reference or nullable.
+
+What is 'is' keyword?
+
+'is' keyword checks whether the conversion from one object type to another object type is compatible or not.
+
+The is operator is of boolean type whereas as operator is not of boolean type.
+----------
+Remove Elements from List??
+var numbers = new List<int>(){ 10, 20, 30, 40, 10 };
+
+numbers.Remove(10); // removes the first 10 from a list
+
+numbers.RemoveAt(2); //removes the 3rd element (index starts from 0)
+
+--------------
+What is Singleton Design Pattern?
+Singleton design pattern in C# is one of the most common design patterns is software design. In singleton design pattern ensures a class has only one instance in the program and provides a global point of access to it.
+
+To prevent multiple instances of the class, the private constructor is used.
+
+a singleton is a class which only allows a single instance of itself to be created,
+
+Disadvantages of Singleton Design Pattern
+Unit testing is more difficult (because it introduces a global state into an application).
+
+-----------
+
+Sealed Class in C#????
+
+Sealed classes are used to restrict the inheritance feature of object oriented programming. Once a class is defined as a sealed class, this class cannot be inherited. 
+
+It can be also inherited from other classes.
+It can be lazy-loaded.
+-----------
+What is Lazy Loading?
+
+Instead of loading the entire web page and rendering it to the user in one go as in bulk loading, the concept of lazy loading assists in loading only the required section and delays the remaining, until it is needed by the user.
+
+Advantages of Lazy loading:
+Unnecessary code execution is avoided.
+Disadvantages of Lazy loading:
+Firstly, the extra lines of code, to be added to the existing ones, to implement lazy load makes the code a bit complicated.
+
+Secondly, lazy loading may affect the website’s ranking on search engines sometimes, due to improper indexing of the unloaded content.
+
+In .NET we have the Lazy<T> class which provides automatic support for lazy loading. 
+  private Lazy<List<Order>> _Orders= null;
+  _Orders = new Lazy<List<Order>>(() => LoadOrders()); 
+
+
+---------
+C# - Tuple??
+A tuple is a data structure that contains a sequence of elements of different data types.
+
+Tuple<int, string, string> person = 
+                        new Tuple <int, string, string>(1, "Steve", "Jobs");
+
+A tuple can only include a maximum of eight elements. It gives a compiler error when you try to include more than eight elements.
+
+
+ValueTuple<int, string, string> person = (1, "Bill", "Gates");
+person.Item1;  // returns 1
+person.Item2;   // returns "Bill"
+person.Item3;   // returns "Gates"
+---------
+
+Built-in Exception Classes???
+
+-ArgumentException-The exception that is thrown when one of the arguments provided to a method is not valid.
+
+-ArgumentNullException--Raised when null argument is passed to a method.
+
+-ArgumentOutOfRangeException-Raised when the value of an argument is outside the range of valid values.
+
+-DivideByZeroException-Raised when an integer value is divide by zero.
+
+-FileNotFoundException-Raised when a physical file does not exist at the specified location.
+
+-FormatException-Raised when a value is not in an appropriate format to be converted from a string by a conversion method such as Parse.
+
+
+-NullReferenceException-Raised when program access members of null object.
+
+-TimeoutException
+-OverflowException
+-OutOfMemoryException
+------------------------------
+‘this’ keyword in C#???
+The “this” keyword in C# is used to refer to the current instance of the class.
+
+It is also used to differentiate between the method parameters and class fields if they both have the same name.
+
+public Student(int id, String name, int age, String subject) {
+   this.id = id;
+   this.name = name;
+   this.subject = subject;
+   this.age = age;
+} 
+
+- pass an object as a parameter to other methods, for example:
+CalcTax(this);
+
+
+------------------------------
+IEnumerable exists in the System.Collections namespace.
+IEnumerable is suitable for querying data from in-memory collections like List, Array and so on.
+
+IQueryable exists in the System.Linq Namespace.
+IQueryable is suitable for querying data from out-memory (like remote database, service) collections.
+IQueryable is beneficial for LINQ to SQL queries.
+-------
+
+What is Connection Pooling in ADO.NET?
+
+Connection pooling is the ability of reusing your connection to the database. 
+
+This means if you enable Connection pooling in the connection object, actually you enable the re-use of the connection to more than one user.
+
+Connection Lifetime: 
+Connection Reset: 
+Max Pool Size: Maximum number of connections allowed in the pool. The default is 100.
+Min Pool Size: Minimum number of connections maintained in the pool. The default is 0.
+Pooling: When true, the connection is drawn from the appropriate pool, or if necessary, created and added to the appropriate pool. The default is true.
+-------
+What is SqlCommand Object?
+The Command Object uses the connection object to execute SQL queries.
+The queries can be in the form of Inline text, Stored Procedures or direct Table access.
+
+The three important methods exposed by the SqlCommand object is shown below:
+ExecuteScalar
+ExecuteNonQuery
+ExecuteReader
+
+-ExecuteScalar is useful for returning a single value from the database. 
+
+-ExecuteNonQuery is useful for performing data manipulation on the database. Simply, the ExecuteNonQuery is for executing the DML statements. 
+
+-ExecuteReader is used when we need to retrieve rows and columns of data using the SQL select statements.
+-------
+What is the DataAdapter Object in ADO.NET?
+
+ A Data Adapter represents a set of data commands and a database connection to fill the dataset and update a SQL Server database.
+-------
+The view is a virtual/logical table formed as a result of a query and used to view or manipulate parts of the table.
+
+-------
+-Method parameter types:
+value parameter: creates Copy of the parameter passed, so modifications does not affect each other.
+
+
+-Ref parameter: The ref keyword passes arguments by reference. It means any changes made to this argument in the method will be reflected in that variable when control returns to the calling method.
+both will point the same memory location
+When ref keyword is used the data may pass in bi-directional.
+
+-Out parameter: The out keyword passes arguments by reference. This is very similar to the ref keyword.
+ 
+ Use when you want a method to return more than one value.
+A called method is required to assign 
+When out keyword is used the data only passed in unidirectional.
+
+
+-parameter Arrays: params is a keyword which is used to specify a parameter that takes 'variable number of arguments'.  only one 'params' keyword is permitted in a method declaration.
+if you're not sure of the number of arguments? This is where "params" keyword is useful.
+if we need parameter as optional
+ 
+-------
+What is Dependency Injection?
+
+Dependency Injection (DI) is a design pattern that takes away the responsibility of creating dependencies from a class thus resulting in a loosely coupled system.
+
+The core features of the DI container have been abstracted out to the IServiceProvider interface
+Because the IServiceProvider is the same across all components of the ASP.NET framework a single dependency can be resolved from any part of the application.
+
+Reduces class coupling
+Increases code reusing
+Improves code maintainability
+Improves application testing
+
+----
+The Inversion of Control principle (IoC) comes in to picture in such cases. IoC states that the control of creating the dependencies should be with the external system rather than the class itself. 
+
+Dependency Injection is a way to implement IoC such that the dependencies are “injected” into a class from some external source.
+
+-------
+What is subquery in SQL?
+A subquery is a SQL query nested inside a larger query.
+
+- A SELECT clause
+- A FROM clause
+- A WHERE clause
+
+1.Single Row Subquery
+Returns zero or one row in results.
+
+2. Multiple Row Subquery
+Returns one or more rows in results.
+
+3. Multiple Column Subqueries
+Returns one or more columns
+
+4. Correlated Subqueries
+Returns one or more columns according to the main or the outer query, thus called a correlated subquery.
+-------
+SQL Indexes??
+
+Indexes in SQL are the individual lookup tables, which are used by the database search engine to speed up the overall data retrieval.
+
+An index in the table is used to increase the overall speed required for searching for any particular data in the database. 
+
+SQL Index is used to quickly find the data in a database table without searching every row of it.
+
+Clustered Index
+Non-Clustered Index
+Unique Index
+Filtered Index
+Columnstore Index
+Hash Index
+
+-Clustered indexes sort and store rows data in a table based on their fundamental values. There might be a case of having only one clustered index in each table,
+ will arrange the rows physically in the memory in sorted order.
+
+An advantage of a clustered index is that searching for a range of values will be fast. 
+Since a clustered index arranges the rows physically in the memory in sorted order, insert and update will become slow because the row must be inserted or updated in sorted order.
+
+
+
+---------
+
+-A nonclustered index is a data structure that improves the speed of data retrieval from tables. Unlike a clustered index, a nonclustered index sorts and stores data separately from the data rows in the table. that reorders one or more selected columns.
+A non-clustered index is an index that will not arrange the rows physically in the memory in sorted order.
+
+CREATE NONCLUSTERED INDEX IX_tblBook_Name
+ON Books(name ASC)
+
+ 
+
+A table may have one or more nonclustered indexes and each non-clustered index may include one or more columns of the table.
+
+A non-clustered index (or regular b-tree index) is an index where the order of the rows does not match the physical order of the actual data.
+
+What is a covering index??
+A covering index is an index which is made up of all (or more) of the columns required to satisfy a query as key columns of the index. 
+
+---Clustered index is slower than Non_Clustered index.
+
+
+ filtered indexes???
+when you insert, update, or delete rows from the table, SQL Server needs to update the associated non-clustered index.
+
+A filtered index is a nonclustered index with a predicate that allows you to specify which rows should be added to the index.
+
+CREATE INDEX ix_cust_phone ON sales.customers(phone)
+INCLUDE (first_name, last_name) WHERE phone "IS NOT NULL";
+
+----------
+Primary key VS unique??
+
+Primary Key:
+A primary key is used to uniquely identify each record in the table.
+
+A table can only have one primary key, but multiple unique keys.
+
+You can only have one primary key per table, but multiple unique keys. 
+Similarly, a primary key column doesn’t accept null values, while unique key columns can contain one null value each.
+And finally, the primary key column has a unique clustered index while a unique key column has a unique non-clustered index.
+
+----------
+CTE??
+
+CTE stands for common table expression. A CTE allows you to define a temporary named result set that available temporarily in the execution scope of a statement such as SELECT, INSERT, UPDATE, DELETE
+
+
+select * from (
+select row_number() over(partition by [colnm] order by [colnm]rowid, * from tableName
+)temp where rowid> 1
+
+
+
+----------
+UNION ALL Difference??
+UNION ALL keeps all of the records from each of the original data sets, UNION removes any duplicate records. 
+
+UNION first performs a sorting operation and eliminates of the records that are duplicated across all columns before finally returning the combined data set.
+
+There must be the same number of columns retrieved in each SELECT statement to be combined.
+The columns retrieved must be in the same order in each SELECT statement.
+The columns retrieved must be of similar data types.
+
+
+----------
+What is a Delegate in C#?
+
+Delegate is one of the base types in .NET.
+Delegate is a class, which is used to create and invoke delegates at runtime.
+
+Programmers often needs to pass a method as a parameter of other methods. For this purpose we create and use delegates.
+A delegate is a class that encapsulates a method signature.
+
+public delegate int DelegateMethod(int x, int y);  
+
+Delegates makes event handling simple and easy.
+Delegates allow methods to be passed as parameters.
+Delegates can be used to define callback methods.
+Delegate helps in code optimization.
+
+
+TYPES of delegates?
+-Singlecast delegate:
+Singlecast delegate point to single method at a time. In this the delegate is assigned to a single method at a time. They are derived from System.Delegate class.
+
+Multicast Delegate:
+When a delegate is wrapped with more than one method that is known as a multicast delegate.
+
+In C#, delegates are multicast, which means that they can point to more than one function at a time. 
+derived from System.MulticastDelegate class.
+
+[attributes] [modifiers] delegate ReturnType Name ([formal-parameters]); 
+
+
+----------
+How Delegates are Related to Events in C#?
+
+Events and delegate work together. An event is a reference to a delegate i.e. when an event is raised, a delegate is called. In C# terms, events are a special form of delegates. 
+
+
+----------
+How to Use Events and Delegates in C#?
+
+obj.MyEvent += new MyDelegate(obj.Display); 
+
+
+----------
+Dependency Injection (DI) is a software design pattern that allow us to develop loosely coupled code. DI is a great way to reduce tight coupling between software components. 
+
+-Constructor Injection:
+This is the most common DI.
+Dependency Injection is done by supplying the DEPENDENCY through the class’s constructor when instantiating that class.
+
+Injected component can be used anywhere within the class.
+
+-Property injection
+Also called Setter injection.
+
+ points about DI
+1.      Reduces class coupling
+2.      Increases code reusing
+3.      Improves code maintainability
+4.      Improves application testing
+
+----------
+Types of Design patterns
+
+Creational: 
+this types with the object creation and initialization.this patter gives the program
+more flexibility in deciding which objects need to be created for a given class
+Eg. singleton, Factory, Abstact Factory.. etc
+
+Structural:
+This type deals with class and object composition. this pattern focuses on decouping
+interface and implementation of classes and its objects.
+Eg. Adapter, Bridge..etc
+
+Behavioural:
+This type deals with the commnunication between Classes and objects.
+Eg. Chain of Responsibility, Command, Interpreter.. etc
+
+*Creational Patterns
+--Abstract Factory	Creates an instance of several families of classes
+  --Builder	Separates object construction from its representation
+ -- Factory Method	Creates an instance of several derived classes
+ -- Prototype	A fully initialized instance to be copied or cloned
+ -- Singleton	A class of which only a single instance can exist
+
+
+Structural Patterns
+  Adapter	Match interfaces of different classes
+  Bridge	Separates an object’s interface from its implementation
+  Composite	A tree structure of simple and composite objects
+  Decorator	Add responsibilities to objects dynamically
+  Facade	A single class that represents an entire subsystem
+  Flyweight	A fine-grained instance used for efficient sharing
+  Proxy	An object representing another object
+
+
+Behavioral Patterns
+  Chain of Resp.	A way of passing a request between a chain of objects
+  Command	Encapsulate a command request as an object
+  Interpreter	A way to include language elements in a program
+  Iterator	Sequentially access the elements of a collection
+  Mediator	Defines simplified communication between classes
+  Memento	Capture and restore an object's internal state
+  Observer	A way of notifying change to a number of classes
+  State	Alter an object's behavior when its state changes
+  Strategy	Encapsulates an algorithm inside a class
+  Template Method	Defer the exact steps of an algorithm to a subclass
+  Visitor	Defines a new operation to a class without change
+
+--------------------
+can we use this keyword in static method??
+
+Because this refers to the object instance. There is no object instance in a call of a static method.
+
+
+
+
+
+--------------------
+Partial Classes in C#??
+
+When you want to chop the functionality of the class, method, interface, or structure into multiple files, then you should use partial 
+
+The partial modifier can only present instantly before the keywords like struct, class, and interface.
+
+A partial class splits the definition of a class over two or more source (.cs) files.
+
+----------------
+const and readonly in c#??
+
+readonly keyword is used to create a readonly fields.
+readonly is a constant defined at runtime.
+readonly field value can be changed after declaration.
+It cannot be declared inside the method.
+
+
+
+const keyword is used to create constant fields.
+const is used to create a constant at compile time.
+const field value cannot be changed after declaration.
+It can be declared inside the method.
+
+
+
+
+
+
+----------
+What Is SVN?
+SVN is used to manage and track changes to code and assets across projects.
+What Are the Subversion Tools?
+
+There are a number of Subversion tools and clients that are commonly used. TortoiseSVN,
+
+Cost: SVN is open source, which means it’s “free.” 
+
+Inertia: Once a large code base is built up, it’s can be hard to switch VCS. SVN has been around since 2004, and the organizations who adopted it have millions of lines of code in it.
+---------
+Azure Repos:
+Free private Git repositories, pull requests and code search
+
+
+

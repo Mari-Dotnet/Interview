@@ -1,0 +1,204 @@
+
+Abstract vs Interface:
+--------------------
+
+1.Inteface is contract
+2.Intetface helps to identity abstraction
+3.abstarct classes are partially defined parent class
+4.interfaces are implemented,Abstact class are inherited
+5.Technically yes abstract class become a  interface but in complicated scenarios it can be a design mistake.
+6. interface have multiple inheritance and abstract have one inheritance
+
+Abstract:
+1.its half designed parent class
+2.share common logic in child class
+3.Abstact class are inherited
+
+Interface:
+1.Interface just have signature only
+2.interfaces are implemented	
+3.Inteface is contract
+4.Planning Abstraction
+----------------------------------------
+2.now below abstract class is like implementation as interface then what is difference.
+eg: sword and knife cut both veg but sword doesn't cut garlic
+Abstract not support multiple inheritance and interface support multiple interface
+
+public abstract class Customerabstract
+    {
+        public abstract string Name { get; set; }
+        public abstract void Enquery();
+        public abstract decimal discount();
+    }
+
+    public class asbtractWalkinCustomer : Customerabstract
+    {
+        public override string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public override decimal discount()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Enquery()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+1.Technically yes abstarct class become a  interface but in complicated scenarios it can be a design mistake.
+2.abstarct class with out anything half defined can be aricheture mistake.
+--------------------------------------------------
+3. why de we need OOPS:
+1.oops help us to think in terms of read world application
+
+eg: create app an hospita
+
+class patient{
+piblic string name {get;set;}
+public string Address {get;set;}
+public doctor doctordata {get;set;}
+}
+class Doctor{
+public string name {get;set;}
+}
+-----------------------------------------------------
+4. four pillor of oops:
+abstraction: show only necesseary
+polimorphisim: object act as differeent condidition
+inheritance: parent child relationship
+encapsulation: hide complexity
+-----------------------------------------------------
+
+5. what is class and object
+class is a type and blueprint (class have fields and methods)
+object is instance to acces that class
+-------------------------------------
+6. Abstaction vs encapsulation
+Abstaction: during design phase
+show only what necesseary 
+what has to be show public
+
+encapsulation: during implementation phase
+hide complexity
+developer user encapsulation to 
+encapusulation implements abstraction
+
+public class AbstractvsEncapusulation
+    {
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public void Validate()
+        {
+            checkName();
+            checkaddress();
+        }
+        private void checkName()
+        {
+
+        }
+        private void checkaddress()
+        {
+
+        }
+
+    }
+----------------------------
+7. inheritance:
+Inheritance define the parent child relationship
+
+Public class employee:Manger
+{
+}
+
+-------------------------------------------
+8. Explain the virtual keyword and Overridden
+	a. Virtual keyword help us to define the some login In the parent class which can be overridden child class
+	
+	public class virtualoverride
+	    {
+	        public int Id { get; set; } 
+	        public string? Name { get; set; }
+	        public virtual void Description()
+	        {
+	            Console.WriteLine("virtual method");
+	        }
+	    }
+	
+	    public class Overidden : virtualoverride
+	    {
+	        public override void Description()
+	        {
+	            Console.WriteLine("overidden class");
+	        }
+	    }
+	
+	
+9. Method overloading:
+	a. Same method name with different signature
+	b. Another eg: Action method in controller(get ,post)
+	public class methodOverloading
+	    {
+	        public void Name()
+	        {
+	            Console.WriteLine("method 1");
+	        }
+	
+	        public void Name(string Name)
+	        {
+	            Console.WriteLine("method 2 with parameter passing");
+	        }
+	       public void Name(string Name, string Address)
+	        {
+	            Console.WriteLine("method 2 with parameter passing");
+	        }
+	
+	    }
+10. Method overloading and overriding:
+	a. Overloading :same class with same method with different signature
+	b. Overriding:  using virtual in parent class and overridden in child class
+11. Polymorphism:
+	a. Static (method overloading)
+	b.  Dynamic/Runtime polymorphism(method overriding)
+		 Interface obj= new customer();
+	            Obj.Address();
+12. Operator overloading
+	a. Redefine the plus,minus and multi
+	b. Custom overloading : using operator keyword
+13. Abstract class:
+	a. Partially defined parent class
+	b. Some implementation defined  
+14. Can we create instance of abstract class:
+	a. No we care not able to create instance
+15. Is it compulsory  to  implement abstract method in child class?
+	a. Implement the child class
+16. Simple class can we use abstract class?
+	a. We cannot create simple class to be defined a pure half way
+17. Interface: 
+	a. Interface is a contract
+	b. Multiple inheritance
+	c. Pure signature
+	d. By default all methods are public
+18. Interface is contract example?
+	public interface ICustomer
+	    {
+	        string Name { get; set; }
+	        void Enquery();
+	        decimal discount();
+	
+	    }
+19. All  interface methods are public.
+	a. Yes, we cannot put any private access modifier
+20. What is interface is contract?
+	a. Child class follow the contract
+	b. Better control the find the impact
+21. If want to change interface what the best practise?
+	a. We can create an new interface with new method.
+	b. Pubic interface newonterface: oldinterfacce
+	c. For versioncontrol in interface
+22. Interface segregation principal?
+	a. Customerdetails one interface
+	b. Customerinterest one interface
+23. Interface advantages?
+	a. Multiple inheritance helps to add new method without affecting the old interface.
+	b. Changes management is very easy
