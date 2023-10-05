@@ -1,0 +1,130 @@
+1. Explain normalization?
+	a. Normalization is database design technique to remove redundant data.
+	b. In transaction table : country like india,IND
+2. How to implement Normalization?
+	a. We splitting table in to two, one reference data(master table) and other one transaction data(foreign key reference)
+3. Denormalization?
+	a. Normalization is database design technique to improve search performance. We merge tables. Duplicate data is present denormalization.
+4. Explain OLTP vs OLAP?
+	a. Online transaction processing
+		i. Insert update delete in this database
+		ii. normalization
+	b. Online analytical processing
+		i. Select the data 
+		ii. De-normalization data
+	c. Once the data insert into OLTP then ETL inset data into OLAP
+5. Explain 1st,2nd and 3rd normal form?
+	a. A for 1st : all column should have atomic value and no repeating group
+	b.  P for 2nd: any non-key column which is partial dependency on primary column.
+	c. T for 3rd: any non-key column which not dependent on other non-key column.
+	d. 1st normal from column have atomic values, it should not have repeating groups.
+		i. Create different column for each field
+		ii. First name ,last name, sure name in single column we not able to update the values individually.
+	e. 2nd normal.
+		i. All non-key column is should be fully depend on primary key
+		ii. Below table we can remove the country name column because its depend on the country master table
+		iii. Id	Country Id	Name 	Age	Country Name
+	f. 3rd: All 1st and 2nd satisfied and no Transient dependency should be present.
+		i. Any non-key column should  not dependent on other non-key column
+		ii. Below product cost is dependent on the product so we can remove product-cost on different table
+		iii. Product	Product cost	size
+		iv. Id	Name	Age	Product	product cost
+6. Primary key is unique key?
+	a. Both of them do not allow duplicate values
+	b. Only one null allow unique key , primary key not allow null value
+	c. One or more unique in table but one primary key table
+7. What is the difference bw char varchar
+	a. Char: fixed length(always take same length)
+		i. If char length is 3 : value store in 2 letter 
+	b. Varchar: variable length
+8. Difference b/w char and nchar?
+	a. Ncahr: Unicode and non-english char we can store
+		i. One char take 2 bytes
+	b. Char: only English letter store
+		i. One char take 1 bye
+9. What is use of index?
+	a. Index increase search the performance.
+	b. Internally create node and leaf node to reach the data quick.
+	c. Book page is index
+10. What are two types of index?
+	a. Both index have balance tree structure.
+	b. Clustered  index
+		i. Leaf node will point to actual data.
+	c. Non-clustered index
+		i. Leaf node take help of clustered index to point a actual data.
+11. Function vs  Store procedure?
+	a. Function	Store procedure
+		Compute values , but will not make any permanent changes to the environment.	
+		Mostly scalar value, Table value function
+		Can be called select, where, other stored procedure	
+		SP:
+		Mini batch program can change the environment. like insert update  delete
+		Can not executed select, where
+	 	Can have single or multiple outputs.
+12. What are trigger and why we need it?
+Create trigger triggername on  tablename after insert,update,delete 
+As 
+begin
+insert into tablename values(getdata())
+End
+13. 1.Identity column in sql server?
+	a. Auto Increment  column which automatically in sql
+14. Explain transaction and how to implement it?
+	a. Transaction  treats series activity as one single unit.
+	begin try
+	begin tran
+		insert into tball values(getdate())
+	commit tram
+	end try
+	begin catch
+		Roolback
+	end catch
+15. Joins:
+	a. Inner join select matching record from both table
+	b. Left join : 
+		i. How to find left table in query  left join left side 
+		ii. Tablecustomer left join ms_country
+		iii. All data from left table selected and only matching record from right table
+	c. Right table:
+		i. All data from right table selected and only matching record from left table
+	d. Full outer join:
+		i. All the matching and un matching records from broth left and right table selected.
+	e. Cross join:
+		i. Cross join don't have matching Id
+
+SQL Interview Questions & Answers - Part 2 :-
+25:-Why do we need UNION ?
+26:-Differentiate between Union vs Union All ?
+27:-can we have unequal columns in Union?
+28:-Can column have different data types in Union ?
+29:- Which Aggregate function have you used ?
+30:- When to use Group by ?
+31:- Can we select column which is not part of group by ?
+32:- What is having clause ?
+33:- Having clause vs Where clause 
+34:- How can we sort records ?
+35:- Whats the default sort ?
+36:- How can we remove duplicates ?
+37:- Select the first top X records ?
+38:- How to handle NULLS ?
+39:- What is use of wild cards ?
+40:- What is the use of Alias ?
+41:- How to write a case statement ?
+42:- What is self reference tables ?
+43:- What is self join ?
+44:- Explain the between clause ?
+
+SQL Interview Questions & Answers - Part 3 :-
+45:- Explain SubQuery?
+46:- Can inner Subquery return multiple results?
+47:- What is Co-related Query?
+48:- Differentiate between Joins and SubQuery?
+49:- Performance Joins vs SubQuery?
+
+SQL Server Interview Questions & Answers - Part 4 :-5
+50:- Find NTH Highest Salary in SQL.
+
+SQL Server  Interview Questions & Answers - Part 5
+51:-  Select the top nth highest salary using correlated Queries?
+52:-  Select top nth using using TSQL
+53:-  Performance comparison of all the methods.
