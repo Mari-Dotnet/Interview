@@ -145,12 +145,4 @@
 	a. Events is notification mechanism that depends on delegats.
 	b.events like a wrapper over the delegate to improve its security.
 	
-38. Method overriding?
-	a.using virutal in base class and override in child  class.
-	b. when the object create in dervied class , dervied class method will execute
-			baseclass obj=new derived class()
-39. Method hiding?
-	a. using new keyword in child class.
-	b. when the object create in dervied class , base class method will execute
-			baseclass obj=new derived class()
 	

@@ -5,6 +5,16 @@ using AbstractVsInterface;
 using System.Collections;
 using System.Threading;
 
+
+dervemethodhiding mdd = new dervemethodhiding();
+mdd.method();
+
+methodhiding mb = new methodhiding();
+mb.method();
+
+methodhiding md= new dervemethodhiding();
+md.method();
+
 #region Boxing and Un-boxing
 int i = 10;
 object a = i; //i values is moved to reference type
@@ -16,7 +26,7 @@ int z=(int)a; // reference type to value type
 int cs = 10;
 double d = cs;// casting(implict casting)lower dataype to higer datatype
 double ch = 100.34;
-int excs = ch; // is throw error
+//int excs = ch; // is throw error
 int excs1 =(int) ch;  //explict casting
 #endregion
 

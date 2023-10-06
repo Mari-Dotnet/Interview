@@ -1,0 +1,147 @@
+1. Planning asp.net ?
+	a. Asp.net Web form-2003
+		i. No cross platform
+		ii. Worst due to view state and page life cycle
+		iii. Quit complicated
+		iv. Html control very less
+		v. Web.config
+	b. Mvc-2009
+		i. No cross platform
+		ii. Medium complicated
+		iii. Good control due to razor view
+		iv. Web.config
+	c. Asp. Net MVC core 2017
+		i. Cross platform
+		ii. Best all version
+		iii. Very simplified
+		iv. Good control due to razor view
+		v. Appsetting.json
+2. What is asp.net MVC core?
+	a. Is open source . Cross platform web development to develop web application created by Microsoft.
+3. Explain MVC architecture?
+	a. Controller
+		i. Its bind model and view
+	b. Model
+		i. Domain class and business logic
+	c. View
+		i. Html and css
+4. Explain the importance of wwwroot folder?
+	a. Is very special folder to store static contents lke, html css ans js files.
+5. Importance of app setting .json?
+	a. Its helps to store config information.
+	b. Its store data key and value pair.
+6. How to read appsetting.json file values?
+	a. We use the IConfiguration object which is injected by MVC core dependency injection framework. 
+	b. Configuration['keyname'] or Configuration['environment:prod']
+7. Explain dependency injection?
+	a. Dependency injection is practice of providing dependent objects from the outside rather that class creating using the new keyword. 
+8. Why we need dependency injection?
+	a. Making the changes in lot of the places to avoid
+	b. We can changes the one place and the changes are reflected across the application seamlessly. 
+9. How do we implemented DI?
+	a. In startup.class file within  configure service method using scoped,singleton or transient
+	b. Eg.
+	c. Service.addscoped<customerdbcontext>();
+	d. When new version come into like customerdbcontext_1
+	e. We can easily chaange the one place in startup service.addscoped<customerdpcontext, customerdbcontext_1)();
+10. Middle ware user in MVC?
+	a. Middle ware helps to execute the pre-processing logic before controller is executed.
+11. How to implement middleware?.
+	a. Add middleware class using middleware template.
+	b. Write the logic on invoke method like custom authentication and authorization
+	c. Use this middleware=> configure method => app.usemiddlware<custommiddleware>();
+12. What does start.up cs file?
+	a. Configureservice;
+		i. Configure service method  help us to configure our dependency injection objects.
+		ii. Service .add is there
+	b. configure method
+		i. Configure method help us to configure middleware.
+		ii. App.use method is there
+13. What are different ways of doing DI?
+	a. Singleton, scoped and transient 
+	b. Add scoped:
+		i. Instantiates once per request made to server
+		ii. Every request a single instance is created and same instance is injected 
+	c. Trasnient.
+		i. New  instances created every single request
+	d. Singleton:
+		i. Once one instance is created at global
+14. What is Razor?
+	a. Help use to write server side code and html code.
+	b. @{write c# code}
+15. How to pass model to view?
+	a. Return view(view name, data)
+16. What are strongly typed views?
+	a. We can get intelligence on view 
+	b. @model model name
+17. What is view model?
+	a. We can't use multiple model in razor page
+	b. Instead of we can create one single model
+18. What is Kestrel ?
+	a. Kestrel is default server of asp.net core which ships asp.net core setup
+19. Why kestrel 
+	a. IIS only run windows
+20. Does kestrel replace IIS?
+	a. NO, its specific only for asp.net
+	b. Revers proxy architecture 
+	c. Iis=>kestrel=> mvc
+21. What are cookies?
+	a. Cookies are text file , its store some kind of information
+22. What is session management?
+	a. Http is stateless proto call is
+	b. Helps us to maintain states between https request.
+23. Session management?
+	a. Httpcontext.session.set or get
+	b. Viewdata[]
+	c. Tempdata[]
+	d. Viewbag
+
+Question 26  :- What exactly is a session ?
+Question 27  :- Explain "HTTP is a stateless protocol" ?
+Question 28  :- What are various way of doing session management ?
+Question 29  :- Are sessions enabled by default ?
+Question 30  :- How to enable sessions in MVC core ?
+Question 31  :- Are sessions variables shared(global) between users ?
+Question 32  :- Do session variables use cookies ?
+Question 33  :- What is a cookie ?
+Question 34  :- Explain idle time out in sessions ?
+Question 35  :- What does a Context means in HTTP ?
+
+ASP.NET MVC Interview Questions & Answers - Part 3
+
+Question 36 :- When should we use viewdata ?
+Question 37 :- How to pass data from controller to view ?
+Question 38 :- In same request can viewdata persist across actions ?
+Question 39 :- ViewData vs ViewBag
+Question 40 :- How does ViewBag work internally?
+Question 41 :- Explain ViewModel?
+Question 42 :-  ViewBag vs ViewModel whats the best practice?
+
+ASP.NET MVC Interview Questions & Answers - Part 4
+
+Question 43  :- Explain tempdata ?
+Question 44  :- Can tempdata persist across action redirects ?
+Question 45  :- How is tempdata different from viewdata ?
+Question 46  :- If tempdata is read is it available for next request ?
+Question 47  :- How to persist tempdata ?
+Question 48  :- What does Keep do in tempdata ?
+Question 49  :- Explain Peek in tempdata ?  
+Question 50  :- How is tempdata different from session variables ?
+Question 51  :- If i restart the server does tempdata, session stay ?
+Question 52  :- Is tempdata private to a user ?  
+Question 53  :- ViewData vs ViewBag vs Tempdata vs Session variables
+
+ASP.NET MVC Interview Questions & Answers - Part 5
+
+  Question 54  :- What is  WebAPI ?
+  Question 55  :- What is the advantage of WebAPI ?
+  Question 56  :- Explain REST and Architectural constraints of REST?
+  Question 57  :- Can we use  TCPIP protocol with Web API?
+  Question 58  :- How WebAPI different from MVC controller ?
+  Question 59  :- What is content negotiations in Web API ?
+  Question 60  :- WebAPI vs WCF ?
+  Question 61  :- WCF REST vs WebAPI REST ?
+  Question 62  :- How to return HTTP status codes ?
+  Question 63  :- For error which status code is returned ?
+  Question 64  :- How did you secure your web API ?
+  Question 65  :- How do current JS frameworks work with webAPI ?
