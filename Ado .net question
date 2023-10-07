@@ -1,0 +1,57 @@
+1. what are the main components of  ado.net?
+	a. Dataset class
+		i. Dataset is basically container which gets the data from one  or more table from the table.
+		ii. Its follow the disconnected architecture
+	b. Data Reader:
+		i. The data reader allows you to read the data returned by select comments.
+		ii. Its read only.
+		iii. Its connected architecture.
+	c. Data Adapter:
+		i. The data adapter bridge the gap between disconnected dataset/data table objects and the physical database.
+2. What is connected architecture  and disconnected architecture  ?
+	a. You don't need connect always to get the data from database.
+	b. You can get into data adapter , disconnect database.
+	c. Connected architecture .
+		i. We  are directly interacting with database is less secure and not  robust.
+3. Different execute method sin Ado.net.
+	a. Execute scalar(): return single value from the dataset.
+	b. Execute non query(): its return result set from the dataset  and it has multiple values. Its used inset update delete.
+	c. Execute reader: its only retrieve data from database. No inset and update.
+4. What are authentication technique used to connect sql server?
+	a. Windows authentication mode
+		i. Use authentication only windows domain accounts only.
+	b. Sql server authentication mode:
+		i. Both windows and sql server authenitcation
+5. What is ORM and different types of ORM?
+	a. ORM: object relational mapper
+		i. Its like a wrapper to make database calls simple and easy.
+	b. Types:
+		i. Entityfrmework 6.x
+		ii. Entity framework core.
+		iii. N hibernate
+		iv. Dapper
+6. What is entity frame work?
+	a. Entity framework is open source ORM form microsoft.
+	b. Its like wrapper on Ado.net
+	c. Its minimizing the code of ado.net.
+7.  what is mean by dbcontext and Dbset?
+	a. Dbcontext is a class in the entity framework that helps create communication between the database and domain/entity class.
+	b. Dbset: its represents entity set can be used for create ,read, update and delete operation.
+8. Different types of enity frame work:
+	a. Database first:
+		i. Create entity model from the existing class
+	b. Code first:
+		i. Create a model and their model and their relation using classes and then create database.
+	c. Model first:
+		i. Model class and relation is created first using the ORM designer.
+9. Difference between linQ and sql and entity framework?
+	a. Linq to sql allow you to query and modify sql server database by using linq syntax.
+	b. Linq to sql generate DBML file.
+	c. EF generate the .edmx file.
+	d. Linq to sql is old and slow.
+	e. EF and mostly fast and new fast.
+	
+			
+			
+			
+		
