@@ -154,3 +154,59 @@
 	b. when the object create in dervied class , base class method will execute
 			baseclass obj=new derived class()
 	
+40.collection:
+	a.  Not type-safe. Generally slower than generics.
+	b.	More flexible than generics, as they can be used to store any type of data.
+	c.	ArrayList, HashTable, Queue.
+
+41. Generics:
+	a.List<T>, Dictionary<TKey,TValue>, Queue<T>
+	b.Type-safe.
+	c.Generally faster than collections.
+	
+42.Finalise and dispose?
+	a.dispose is a method of Idisposbale interface. its dispose the object which is no more longer. its called manually by user.
+	b. finalize id called my garbage collector automatically and cannot called by user.
+	c. there is no difference bw the performace, developer will know when object is create and clean.
+	d. garbage colletor will run every 10 minutes.
+
+
+43.Solid design principle?
+s: sinlge responseblity principle: a class 	should have only one res
+o: open closed principle: its open for extension and closed for modification
+l: liskove substitutuion principle : all the base class methods must be applicable for deervied class.
+i: interface segeregation principle :have multiple smaller interface than larger interface.(segregate your interface as much as smaller)
+D: dependency inversion principle : high level class must be not dependent upon lower level class.
+
+44. What is dry principle?
+	a.DRY stands for don't repeat yourself.
+	b.don't write same funtionality multiple times.
+	c.istead of you can write one place use to access multiple place using inheritance.
+	d. if example we can use common filed in base class.
+	
+45. ref vs out?
+	a. out vs ref is c# keyword
+	b. ref is two way from caller and calle and back.
+	c. out is one way send data back from calle to caller.
+	
+	   public static void reffunction(ref int somevalue) //calle
+        {
+            somevalue += somevalue;
+        }
+
+        public static void outfntion(out int somevalue)
+        {
+            somevalue= 0;
+            somevalue += somevalue;
+        }
+		
+		int a = 10;
+        Console.WriteLine("using ref a values before method call", a);  //10
+        reffunction(ref a); //caller
+        Console.WriteLine("using ref a values is",a);  //20
+        int b = 20;
+        Console.WriteLine("using out a values before method call", b); 20
+        outfntion(out b); //calle
+		Console.WriteLine("using out a values before method call", b); 0
+		
+		
