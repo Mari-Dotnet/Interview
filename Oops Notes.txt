@@ -47,12 +47,12 @@ public abstract class Customerabstract
     }
 
 1.Technically yes abstarct class become a  interface but in complicated scenarios it can be a design mistake.
-2.abstarct class with out anything half defined can be aricheture mistake.
+2.abstarct class with out  half defined abstact class can be aricheture mistake.
 --------------------------------------------------
 3. why de we need OOPS:
 1.oops help us to think in terms of read world application
 
-eg: create app an hospita
+eg: create app an hospital
 
 class patient{
 piblic string name {get;set;}

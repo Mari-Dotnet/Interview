@@ -23,7 +23,7 @@
 	e. 2nd normal.
 		i. All non-key column is should be fully depend on primary key
 		ii. Below table we can remove the country name column because its depend on the country master table
-		iii. Id	Country Id	Name 	Age	Country Name
+		iii. Id	Country Id	Name Age Country Name
 	f. 3rd: All 1st and 2nd satisfied and no Transient dependency should be present.
 		i. Any non-key column should  not dependent on other non-key column
 		ii. Below product cost is dependent on the product so we can remove product-cost on different table
@@ -140,32 +140,128 @@ delete from duplicatedelet where deldata >1
 
 SQL Interview Questions & Answers - Part 2 :-
 25:-Why do we need UNION ?
+	a.To combine the two or more slect statement into a single result.
+	
 26:-Differentiate between Union vs Union All ?
+	a.union remvoe duplicate records and union all does not remove duplicate records.
+	b. union performace  slower , union all performance faster.
+
+-- UNION
+SELECT name, age FROM customers WHERE country = 'USA'
+UNION
+SELECT name, age FROM customers WHERE country = 'UK';
+
+-- UNION ALL
+SELECT name, age FROM customers WHERE country = 'USA'
+UNION ALL
+SELECT name, age FROM customers WHERE country = 'UK';
+	
 27:-can we have unequal columns in Union?
+	a.yes, the column in the two select statment must have a same datatype.
+	
 28:-Can column have different data types in Union ?
+	a. No, columnn cannpt have different datatypes in a union query.
+	
 29:- Which Aggregate function have you used ?
+	a. mean(),std(),count(),sum(),min(),max()
 30:- When to use Group by ?
+	a.we need to summarize the data by specifi column.
+	b.find the total sale of each product,  count the number of customer in country.
+	
+SELECT product_id, SUM(quantity_sold) AS total_sales
+FROM orders
+GROUP BY product_id;
+
 31:- Can we select column which is not part of group by ?
+	a.its throwing error, in order to avoid that we can use any aggreate function on other select column.
+	
 32:- What is having clause ?
-33:- Having clause vs Where clause 
+		a. its used to filter the result set of group by query.
+		
+33:- Having clause vs Where clause?
+		a. where clause used to filter individual rows, having clause used by group of rows.
+		b. where used any types of column and having used aggregate function only.
+		
 34:- How can we sort records ?
+		a. using order by clause to sort the result of query in asce/desc.
+		
 35:- Whats the default sort ?
+	a.sql server do not have any default sort order. 
+	b. if you want sort we can use order by.
+	
 36:- How can we remove duplicates ?
-37:- Select the first top X records ?
+	a. Distinct keyword used to remove duplicate values and only show unique values.
+	b. group by also used to get unique values.
+	c. question number 18 have ans. ( we use rownumber() partition by name order by name)
+
+37:- Select the first top X records ?	
+	a. use top 10 records  in select query
+	b. Rownumber() also we can use to get top x record.
+	
 38:- How to handle NULLS ?
+		a. while create a table column we can set not null constraint.
+		
 39:- What is use of wild cards ?
+	 a. wilecards is special character that can be used to match multiple character in single string.
+	 b. percentage: percent sign match any number of character ( using like '%sf%'
+	 c.underscore: The underscore matches a single character.
+	 
 40:- What is the use of Alias ?
+	a. AS keyword to create an alias.
+	b.to avoid name conflicts and simpify complex queries.
+	
 41:- How to write a case statement ?
+	select Name,
+	case 
+		when Salary <=8000 then 'Below 8K'
+		when Salary >8000 then 'more 8K'
+		end as 'salary range'
+	from #temp
+	
 42:- What is self reference tables ?
+	 a. table have foreign key that reference own primary key.
+	 b.Manager and employee both in one table is called self reference table.
+	CREATE TABLE employees (
+	  employee_id INT NOT NULL AUTO_INCREMENT,
+	  manager_id INT NULL,
+	  name VARCHAR(255) NOT NULL,
+	  PRIMARY KEY (employee_id),
+	  FOREIGN KEY (manager_id) REFERENCES employees(employee_id)
+	);
+
 43:- What is self join ?
+	a. self join used to querying and analyzing the data into single table.
+	b. eg: above question.
+
 44:- Explain the between clause ?
+	a.the between clause used to retrive the data from start and end.
+	b.You can use between in conjection with sql operator and or not
+	c. select *from customer where order_total between 100 and 200;
 
 SQL Interview Questions & Answers - Part 3 :-
+
 45:- Explain SubQuery?
+	a.sub query ia sql query that is nested inside the another sql query.
+	b.sub query used in select , form, where having, order by
+
 46:- Can inner Subquery return multiple results?
+	 a. Yes, an inner subquery can return multiple results.
+	 
 47:- What is Co-related Query?
+	 a.A correlated subquery is a subquery that references a column in the outer query. 
+	 b.This means that the inner subquery is executed once for each row in the outer query. 
+	 
 48:- Differentiate between Joins and SubQuery?
+Joins:
+	a.Combine data from two or more tables based on a common field.
+	b.Generally faster than subqueries, especially for large datasets.
+sub query:	
+	a.Filter the results of an outer query, or perform complex calculations.
+	b.Generally slower than joins, especially for complex subqueries.
+
 49:- Performance Joins vs SubQuery?
+	a.Generally faster than subqueries, especially for large datasets.
+	b.Generally slower than joins, especially for complex subqueries.
 
 SQL Server Interview Questions & Answers - Part 4 :-5
 50:- Find NTH Highest Salary in SQL.
