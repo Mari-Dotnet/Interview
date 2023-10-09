@@ -182,7 +182,7 @@ D: dependency inversion principle : high level class must be not dependent upon 
 	a.DRY stands for don't repeat yourself.
 	b.don't write same funtionality multiple times.
 	c.istead of you can write one place use to access multiple place using inheritance.
-	d. if example we can use common filed in base class.
+	d. if example we can use common field in base class.
 	
 45. ref vs out?
 	a. out vs ref is c# keyword

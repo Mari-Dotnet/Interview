@@ -148,17 +148,42 @@ Question 42 :-  ViewBag vs ViewModel whats the best practice?
 
 ASP.NET MVC Interview Questions & Answers - Part 4
 
-Question 43  :- Explain tempdata ?
-Question 44  :- Can tempdata persist across action redirects ?
-Question 45  :- How is tempdata different from viewdata ?
-Question 46  :- If tempdata is read is it available for next request ?
-Question 47  :- How to persist tempdata ?
-Question 48  :- What does Keep do in tempdata ?
-Question 49  :- Explain Peek in tempdata ?  
-Question 50  :- How is tempdata different from session variables ?
-Question 51  :- If i restart the server does tempdata, session stay ?
-Question 52  :- Is tempdata private to a user ?  
-Question 53  :- ViewData vs ViewBag vs Tempdata vs Session variables
+43  :- Explain tempdata ?
+44  :- Can tempdata persist across action redirects ?
+45  :- How is tempdata different from viewdata ?
+46  :- If tempdata is read is it available for next request ?
+	a.once valeus is read from the tempdata that values is deleted, if  you want that values for next request we can use peek .
+	
+47  :- How to persist tempdata ?
+
+48  :- What does Keep do in tempdata ?
+
+49  :- Explain Peek in tempdata ?  
+	peek : read the value and hold it for next request
+	keep: without read the value and hold it for next requst
+	a.Peek: The Peek method reads the value of the TempData item without deleting it.
+	b.The Keep method marks the TempData item as persistent, so that it is not deleted when the next HTTP request is made.
+
+50  :- How is tempdata different from session variables ?
+	a. tempdata:
+		short lived until the next http request
+		private to user
+		pass data from next view and next controller.
+		display sucess message after user insert some record.
+	b.session:
+		long lived until the user'session's  expires
+		can be shared between muliple users.
+		used to stored the data that needs to access entire user session.
+		stored user login permission.
+		
+51  :- If i restart the server does tempdata, session stay ?
+	a. No. tempdata is stored on browser session cache , so its lost when browser is closed or user navigate to different site.
+	b. sessio is stored on server , but is also lost when the server is restarted.
+	
+52  :- Is tempdata private to a user ?  
+	a.yes,tempdata is privaate to user.it's stored on browser session cache, which is unique to each user.
+	
+53  :- ViewData vs ViewBag vs Tempdata vs Session variables
 
 ASP.NET MVC Interview Questions & Answers - Part 5
 
@@ -224,14 +249,15 @@ Web API:
 	
 8. What are response code in web api?
 	a. 200: success
-	b. 210: success and record created
+	b. 201: success and record created
 	c. 3xx: redirect 
-	d. 4xx: client error(some error in API request)
-		i. 400 bad request
-		ii. 401 : Unauthorized(invalid credential)
-		iii. 403:  forbidden permission denied
-		iv. 404
-	e. 5xx: server error(api code or env error)
+	d. 4xx: 
+		i. 400 bad request(The request was invalid.)
+		ii. 401 : Unauthorized(invalid credential or client does not have the necessary permissions.)
+		iii. 403:  forbidden permission denied(The client is authorized to access the requested resource, but is not allowed to perform the requested action.)
+		iv. 404 (The requested resource could not be found)
+	e. 500: server error(api code or env error)An unexpected error occurred on the server. 
+	f.503: Service Unavailable (server being overloaded, or the server undergoing maintenance)
 9. What is basic authentication?
 	a. Verifying the user have access the site.
 10. What is API key authentication?
@@ -241,7 +267,7 @@ Web API:
 	b. Authentication server sends token to the clients as response.
 	c. The client application then used the token to access the restricted resources.
 	d. If the acces token is expired . Then the client application can request for a new access token by refresh token.
-12. Oauth is standard for creating standard for token based authentication an authorization.
+12. Oauth is standard for creating standard  token based authentication an authorization.
 13. What is JWT token authentication?
 	a. JWT is token format.
 14. What are parts of JWT token?
