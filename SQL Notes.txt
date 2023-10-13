@@ -249,7 +249,7 @@ SQL Interview Questions & Answers - Part 3 :-
 	 
 47:- What is Co-related Query?
 	 a.A correlated subquery is a subquery that references a column in the outer query. 
-	 b.This means that the inner subquery is executed once for each row in the outer query. 
+	 b.This means that the inner subquery is executed once ,for each row in the outer query. 
 	 
 48:- Differentiate between Joins and SubQuery?
 Joins:

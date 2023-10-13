@@ -1,5 +1,5 @@
 1. explian difference between is .NET vs C#
-	a. .NET is a framework
+	a. .NET is a framework(4.8)
 		i. It is collection of library
 		ii. Its has CLR and garbage collection
 		iii. CLR kickout the run the application
@@ -9,7 +9,7 @@
 	a. its better than .Net framework
 	b. Broken down the big dll to small dll
 	c. Memory is less for loading time
-	d. CLI support(common language runtime)
+	d. CLR support(common language runtime)
 4. .NET 5.0 is unified platform .NET framework, dot net core 
 5. What is IL code and what is JIT
 	a.  Intermediate language  code is a use to convert c# to partially complied code.

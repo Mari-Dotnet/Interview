@@ -279,3 +279,31 @@ Web API:
 	a. Authorization: bearer(Key : value)
 	b. Its present in header.
  
+ 
+ 
+Question In accenture?
+float vs decimal?
+
+Feature	  Decimal	  Float
+Size	   128 bits	   32 bits
+Precision	Up to 28 decimal places	Up to 6 decimal places
+Accuracy	More accurate	Less accurate
+Performance	Less efficient	More efficient
+
+int 32 vs int 64?
+
+Int16: 2 bytes
+Int32 and int: 4 bytes
+Int64 : 8 bytes
+in C#, long is mapped to Int64.
+
+
+Authentication and authorization is work ?
+
+Action filter in asp.net core?
+	a.Exception filter:IExceptionFilter
+	b.Outputcache
+	c.authorization filter:IAuthorizationFilter
+	d.Action filetr have two methods:
+		a.OnActionExecuted: This method is executed after the action method has been called and before the result is executed.
+		b.OnActionExecuting : This method is executed before the action method is called. Authorization

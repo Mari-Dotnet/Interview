@@ -113,7 +113,7 @@ Public class employee:Manger
 
 -------------------------------------------
 8. Explain the virtual keyword and Overridden
-	a. Virtual keyword help us to define the some login In the parent class which can be overridden child class
+	a. Virtual keyword help us to define the some logic In the parent class which can be overridden child class
 	
 	public class virtualoverride
 	    {
