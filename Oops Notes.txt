@@ -65,7 +65,7 @@ public string name {get;set;}
 -----------------------------------------------------
 4. four pillor of oops:
 abstraction: show only necesseary
-polimorphisim: object act as differeent condidition
+polimorphisim: its act as differeent condidition(complie time (method overloading) / run time (method  overriding)	
 inheritance: parent child relationship
 encapsulation: hide complexity
 -----------------------------------------------------
@@ -202,3 +202,64 @@ Public class employee:Manger
 23. Interface advantages?
 	a. Multiple inheritance helps to add new method without affecting the old interface.
 	b. Changes management is very easy
+
+24.singleton pattern?
+
+public class machine{
+
+public class VoteMachine
+{
+    private static VoteMachine _instance = null;
+    private int _totalVotes = 0;
+
+    private static readonly object lockObj = new object();
+
+    private VoteMachine()
+    {
+    }
+
+    public static VoteMachine Instance
+    {
+        get
+        {
+            lock (lockObj)
+            {
+                if (_instance == null)
+                {
+                    _instance = new VoteMachine();
+                }
+            }
+                
+            return _instance;
+        }
+    }
+
+}
+
+25. what is use of protected/private/static constrctor?
+	a.private:
+		we  are not able to create object for when the class have private
+		contsructor and its used on singleton pattern.
+	b.protected:
+		A protected constructor is used to allow derived classes to initialize their own instances. It is often used in inheritance scenarios.
+	c. static:
+		to perform one-time initialization tasks for static members.The static constructor is not called explicitly.
+	d.public:
+	     public constructor is called using new when creating instances of the class.
+26.string reverse?
+	string rever_str = "marimuthu";
+    string Afterrever= new string(rever_str.Reverse().ToArray());
+
+27.== is compare object reference are same
+28.equals contents are same.
+object ac = "mari";
+object bc = new string("mari".ToCharArray());
+if (ac.Equals(bc))
+{
+    //true
+}
+
+if (ac==bc)
+{
+    //false going
+}

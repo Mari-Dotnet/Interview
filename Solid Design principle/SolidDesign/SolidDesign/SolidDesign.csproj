@@ -49,7 +49,10 @@
     <Compile Include="Openclosed.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="protectconstructor.cs" />
+    <Compile Include="Singleton.cs" />
     <Compile Include="SPR.cs" />
+    <Compile Include="staticchcek.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -61,6 +61,19 @@
 		Mini batch program can change the environment. like insert update  delete
 		Can not executed select, where
 	 	Can have single or multiple outputs.
+		
+CREATE FUNCTION dbo.AddTwoNumbers
+(
+    @num1 INT,
+    @num2 INT
+)
+RETURNS INT
+AS
+BEGIN
+    RETURN @num1 + @num2;
+END;
+
+
 12. What are trigger and why we need it?
 Create trigger triggername on  tablename after insert,update,delete 
 As 
@@ -250,6 +263,15 @@ SQL Interview Questions & Answers - Part 3 :-
 47:- What is Co-related Query?
 	 a.A correlated subquery is a subquery that references a column in the outer query. 
 	 b.This means that the inner subquery is executed once ,for each row in the outer query. 
+
+SELECT CustomerID, CustomerName
+FROM Customers c
+WHERE (
+    SELECT COUNT(*)
+    FROM Orders o
+    WHERE o.CustomerID = c.CustomerID
+) > 1;
+
 	 
 48:- Differentiate between Joins and SubQuery?
 Joins:
@@ -270,3 +292,20 @@ SQL Server  Interview Questions & Answers - Part 5
 51:-  Select the top nth highest salary using correlated Queries?
 52:-  Select top nth using using TSQL
 53:-  Performance comparison of all the methods.
+
+54. column into row?
+
+select Id,Attribute,value from(
+select Id,Name,Salary from #temp
+)p
+UNPIVOT(
+value for Attribute in (Name)
+) as unpvt
+
+55.date conversion?
+select convert(varchar,GETDATE(),103) --dd/mm/yyyy
+select convert(varchar,GETDATE(),101)--mm/dd/yyyy
+select FORMAT(GETDATE(),'dd/MM/yyyy') as dateformat --13/10/2023
+select FORMAT(GETDATE(),'dd/MM/yy') as dateformat --13/10/23
+select FORMAT(GETDATE(),'dd MMMM yy') as dateformat --13 October 23
+

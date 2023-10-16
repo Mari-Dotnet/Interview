@@ -51,7 +51,18 @@
 	d. Linq to sql is old and slow.
 	e. EF and mostly fast and new fast.
 	
-			
-			
-			
+10.select vs first?
+	a.select is used when you want transform in a collection 
+	b.first is when you retrive the first element in specfic condition.
+	
+11.first or firstor default?
+	a.retrun the first value from the collection.
+	b.first its not handle null exception but firstordefault handle null values.
+	
+12.Ado.net sql connnection code?
+
+13.how to connect sql ?
+	
+
+            
 		

@@ -26,6 +26,50 @@ namespace SolidDesign
         }
         static void Main(string[] args)
         {
+
+            string rever_str = "marimuthu";
+            string Afterrever= new string(rever_str.Reverse().ToArray());
+            object ac = "mari";
+            object bc = new string("mari".ToCharArray());
+            if (ac.Equals(bc))
+            {
+                //true
+            }
+
+            if (ac==bc)
+            {
+                //false going
+            }
+            Singleton singleton = Singleton.instance;
+
+            //protectconstructor ct=new protectconstructor();
+            //protected constructor does not allow to create object fot base class = new child class
+            //protectconstructor testprotconstructor = new testprotconstructor();
+
+            #region get the repeat letter  count and select the letter
+
+            string repeat = "hello world";
+            Dictionary<char, int> map = new Dictionary<char, int>();
+            foreach (char data in repeat)
+            {
+                if (char.IsLetter(data))
+                {
+                    if (map.Keys.Where(x => x == data).Any() == true)
+                    {
+                        map[data] = map[data] + 1;
+                    }
+                    else
+                    {
+                        map.Add(data,1 );
+                    }
+                }
+            }
+
+            var maxvlaus = map.FirstOrDefault(x => x.Value == map.Values.Max());
+            Console.WriteLine($"the most repeat letter is {maxvlaus.Key} and count is {maxvlaus.Value}");
+            #endregion
+
+            Console.ReadKey(); 
             int a = 10;
             Console.WriteLine("using ref a values before method call", a);
             reffunction(ref a); //caller 

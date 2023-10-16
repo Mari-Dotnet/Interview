@@ -100,7 +100,7 @@
 	b. Ienumerable interanally used ienumrator
 	c.list=>ienumerable=> Ienumerator
 	d. list, ienumerable we can use for loop for data retrive
-	e.Ienumerable we can use while and move next().
+	e.Ienumeumarator we can use while and move next().
 31.Iquearble vs ienumerable
 	a. Iquerable inherited from Ienumeable
 	b. Ienumeable is used  inmemory collection
@@ -172,7 +172,7 @@
 
 
 43.Solid design principle?
-s: sinlge responseblity principle: a class 	should have only one res
+s: sinlge responseblity principle: a class 	should have only one responseblity
 o: open closed principle: its open for extension and closed for modification
 l: liskove substitutuion principle : all the base class methods must be applicable for deervied class.
 i: interface segeregation principle :have multiple smaller interface than larger interface.(segregate your interface as much as smaller)
@@ -209,4 +209,21 @@ D: dependency inversion principle : high level class must be not dependent upon 
         outfntion(out b); //calle
 		Console.WriteLine("using out a values before method call", b); 0
 		
-		
+46. find max letter and count in string?
+string repeat = "hello world";
+Dictionary<char, int> map = new Dictionary<char, int>();
+foreach (char data in repeat)
+{
+    if (char.IsLetter(data))
+    {
+        if (map.Keys.Where(x => x == data).Any() == true)
+        {
+            map[data] = map[data] + 1;
+        }
+        else
+        {
+            map.Add(data,1 );
+        }
+    }
+}
+var maxvlaus = map.FirstOrDefault(x => x.Value == map.Values.Max());
