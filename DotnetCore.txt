@@ -1,0 +1,122 @@
+1. What is dot net core?
+	a. Dot net core is new framework and its open source its developed by Microsoft.
+2. .Net standard library is common for .net core, .net framework, mono litic(mobile app)
+3. What are advantage of .net core over .net framework?
+	a. Cross platform (winodws, linux,macos)
+	b. Free to use
+	c. Its easy to integrate (angular,react,vue js)
+	d. Hosting (iss,nginx)
+	e.  build in dependency injection
+		i. Loosely coupled design
+		ii. Reusability
+		iii. Testability
+	f. Support multiple IDE(vs, vs code)
+4. Project structure of dot Dot net core?
+	a. WWWRoot: to store static files like js/images/css
+	b. Program.cs: entry point of the application.
+	c. Startup.cs : configure service and request pipeline for the application.
+	d. App setting. json : config details we can store 
+5. What is role of program file.cs?
+	a. Is entry point of the application via main method. Its also register startup.class.
+6. What is role of startup file?
+	a. It configure the service which are required by the app using configured service method.(IserviceCollection) service.add
+	b. Request handling pipeline as series of middleware components by using configure method.(Iapplicatonbuilder) app.use,map,run
+	
+7. Dot net core flow?
+	a. Program. Main
+	b. Startup()
+	c. Configure service
+	d. Configure()
+8. What is role configured service and configure method?
+	a. Configure: it's used to middle ware components, respond the http request and response.
+	b. configured Service: Its will execute before configure method.
+9. What is dependency injection in asp .net core?
+	a. Dependency injection helps us to create loosely coupled design of the application.
+	b. Loosely coupled: to avoid creation of the object
+		i. Multiple controller: used in one class like math student
+		ii. Now we change the scient student
+		iii. To avoid creation of the object
+	c. First we can create interface with Istudent
+	d. Service.addsingletonIstudent,student>
+10. Describe the service lifetime of asp.net core or differ b/w 
+	a. Singleton: create only one instance when the service is requested(logger we can use)
+	b. Scoped: create single instance for each request. Different request difference instance.
+	c. Transient: the instance is not shared at all.
+11. What is middleware?
+	a. Middle ware is nothing but component that is executed on every request in the asp.net core application.
+12. What is kestrel? Kestrel is light weight webserver for .net core application.
+	a. In-progress:
+		i. Pure iss hosting-process name is w3wp.exe
+		ii. Only one web server 
+	b. Out progress:
+		i. Process name is dotnet.exe
+		ii. Two web server (iis/apache+kestrel)
+13. Difference b/w kestrel IIS?
+	a. Kestrel
+		i.  is light weight wen server used for hosting
+		ii. Kestrel is cross platform and can be used other web server iss and apache.
+		iii. Kestreal is open source like dot net core
+	b. IIS:
+		i. Its complete web server which also used for hosting
+		ii. Its only run windows
+		iii. Iis is not open source like .net framework.
+14. What is request delegate?
+	a. Request delegate used to handle  the each http request and are used to build the request pipe line  by using run,map  and use extension.
+15. Use: this method will execute next middleware method
+16. Map: execute middleware if path requested by user equals path provided on parameter.
+17. Run: terminated chain. No other middle ware  method will not run.
+18. What is host in asp.net core?
+	a. The host configures a serve like kestrel or iis and a request processing pipeline.
+	b. Startup class =>createhostbuilder
+19. How routing worked on asp .net core?
+	a. Routing is used to handle the http request for the app based on the URL.
+	b. App.useendpoints.
+20. Explain attribute routing?
+	a. Its used to manipulates the behavior of url by route attribute.
+	b. [Route("")]
+	c. [Route("Newindex")]
+21. Request processing pipeline in asp.net core?
+	a. Http request=>middle ware=> routing=> controller initialization=>
+	b. =>Action method execution=>result execution=>view rendring/data result
+22. Dot net core application work with dot net frame work.
+23. What is metapackage?
+	a. Microsft.aspnetcore.app
+	b. Microsft.netcore.app
+24. How asp.net core serve static files?
+	a. In middleware like =>app.useStaticfiles()
+	b. wwwRoot folder used to store static files.
+25. Various json file in asp .net core?
+	a. Global json: we can define solution level setting
+	b. Launchsetting.json: env related detaills
+	c. Appsetting.json: configure related details
+	d. Bulleconfig.json: we can configure the bundling and minification for the project.
+	e. Project.json: project level details
+26. What is .net standard?
+	a. Its not framework.
+	b. Library have some defined rules.
+27. Razor pages?
+	a. Its help us to write html code and c# code
+28. How to use dependency injection views in dot net core?
+	a. Using @inject in web page.
+29. Custom middle ware?
+	a. Middle ware in dot net core provided by staticfiles,routing,authentication,authorixation .
+	b. Similary, we can create middle ware. We  have default template middleware.
+	c. Write code in Invoke method on custom middleware.
+	d. After we can use that middle ware in configure service.
+30. State management in dot net core?
+	a. Cookies=> store the data on browser
+	b. Session=> store the data and transforming data b/w different pages.
+	c. Tempdata=> tranfer data from controller to view
+	d. Query string: its used to transfer limited data by appending the url of the request.
+31.  model validation:
+	a. DataAnnotation technique used for model validation.
+	b. Using [Required] keyword.
+	c. [Required]
+	d. Public string name {get;set;}
+32. How to handle error on asp.net core?
+	a. If error handled on configure method have app.useexcetionhandler("home/error")  middleware.
+33. How to enable session on asp.net core?
+	a. Session provided by microsoft.aspnetcore.session package
+	b. After we can add session on service.AddSession() and app.UseSession().
+34. Explain model binding in asp.net core?
+		a. Maps the data in http request to controller action method parameters.

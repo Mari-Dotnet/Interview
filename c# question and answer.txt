@@ -227,3 +227,7 @@ foreach (char data in repeat)
     }
 }
 var maxvlaus = map.FirstOrDefault(x => x.Value == map.Values.Max());
+
+
+47. what is use of  using keyword?
+	a.it's used for managing resources and importing namespaces.

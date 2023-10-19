@@ -62,6 +62,20 @@
 12.Ado.net sql connnection code?
 
 13.how to connect sql ?
+
+DataTable DT = null;
+SqlConnection connection=new SqlConnection(Connectionstring);
+using (SqlCommand cmd = new SqlCommand(Querytext, connection))
+{
+    cmd.CommandTimeout = timeoutconnection;
+    cmd.CommandType = System.Data.CommandType.Text;
+    using (SqlDataReader sqlreader = cmd.ExecuteReader())
+    {
+        DT = new DataTable();
+        DT.Load(sqlreader);
+    }
+    return DT;
+}
 	
 
             
