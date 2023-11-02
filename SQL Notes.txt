@@ -73,6 +73,13 @@ BEGIN
     RETURN @num1 + @num2;
 END;
 
+create function psbook()
+Returns varchar(50)
+as
+begin
+Return(select Title from  Books where BookId=1)
+end
+
 
 12. What are trigger and why we need it?
 Create trigger triggername on  tablename after insert,update,delete 
@@ -81,13 +88,13 @@ begin
 insert into tablename values(getdata())
 End
 13. 1.Identity column in sql server?
-	a. Auto Increment  column which automatically in sql
+	a. Auto Increment column which automatically increment the value
 14. Explain transaction and how to implement it?
 	a. Transaction  treats series activity as one single unit.
 	begin try
 	begin tran
 		insert into tball values(getdate())
-	commit tram
+	commit tran
 	end try
 	begin catch
 		Roolback
@@ -117,7 +124,7 @@ end
 begin try
 begin tran
 	insert into tball values(getdate())
-commit tram
+commit tran
 end try
 begin catch
 	rollback
