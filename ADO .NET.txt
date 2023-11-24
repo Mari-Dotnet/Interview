@@ -76,7 +76,13 @@ using (SqlCommand cmd = new SqlCommand(Querytext, connection))
     }
     return DT;
 }
-	
+
+Using dataadafter:
+// Create a SqlDataAdapter object 
+SqlConnection connection=new SqlConnection(Connectionstring);
+SqlDataAdapter adapter = new SqlDataAdapter("select *from employee", conn); 
+DataTable DT = null;
+adapter.fill(DT)
 
             
 		

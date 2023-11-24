@@ -1,0 +1,62 @@
+----1
+---21
+--321
+-4321
+
+
+for(int i=0; i<5; i++)
+{
+----1
+---21
+}
+
+method1
+
+public class parent
+{
+
+}
+
+
+public class child:parent
+{
+
+}
+
+
+public intrface intefac1{
+void print()
+
+}
+
+public intrface intefac2{
+void print()
+
+}
+
+
+public class child:intefac1,intefac2
+{
+intefac1.print(
+}
+
+emploeedetails().orderbydesc(salry).take(5).tolist()[2].stringmethod()
+
+
+
+public static stringmethod(this string){
+
+}
+
+
+select *from(
+select studentId,name, rank() over(partiation by staudentId,name order by student id) as rownumer
+from student
+) t where rownumer>2
+
+
+
+
+
+
+

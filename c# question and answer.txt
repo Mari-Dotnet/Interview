@@ -231,3 +231,4 @@ var maxvlaus = map.FirstOrDefault(x => x.Value == map.Values.Max());
 
 47. what is use of  using keyword?
 	a.it's used for managing resources and importing namespaces.
+	b.using Statement for Resource Management especially for objects that implement the IDisposable interface.

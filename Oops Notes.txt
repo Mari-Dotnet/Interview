@@ -230,6 +230,7 @@ public class VoteMachine
                 }
             }
                 
+				
             return _instance;
         }
     }

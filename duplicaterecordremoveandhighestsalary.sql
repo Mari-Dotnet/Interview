@@ -33,6 +33,12 @@ select *from topserond where rownumber=2
 
 select *from #temp
 
+--without CTE we can filter the data
+select *from(
+select Name,Salary, ROW_NUMBER() over(order by salary desc) as Rank_num from #temp 
+) T
+where Rank_num=2
+
 ---------------------------------------
 
 
@@ -73,3 +79,16 @@ select FORMAT(GETDATE(),'dd/MM/yyyy') as dateformat --13/10/2023
 select FORMAT(GETDATE(),'dd/MM/yy') as dateformat --13/10/23
 select FORMAT(GETDATE(),'dd MMMM yy') as dateformat --13 October 23
 
+
+--Alternate way use having
+select *from (
+select  name, sum(salary) as maxsalry
+from #temp
+group by Name 
+
+) T where maxsalry >10000
+-- havaing
+select  name, sum(salary) as maxsalry
+from #temp
+group by Name
+having sum(salary) > 10000

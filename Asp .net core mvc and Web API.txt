@@ -44,7 +44,7 @@
 	c. Service.addscoped<customerdbcontext>();
 	d. When new version come into like customerdbcontext_1
 	e. We can easily chaange the one place in startup service.addscoped<customerdpcontext, customerdbcontext_1)();
-10. Middle ware user in MVC?
+10. Middle ware use in MVC?
 	a. Middle ware helps to execute the pre-processing logic before controller is executed.
 11. How to implement middleware?.
 	a. Add middleware class using middleware template.

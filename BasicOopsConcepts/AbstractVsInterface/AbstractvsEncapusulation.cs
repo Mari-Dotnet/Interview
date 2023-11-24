@@ -15,11 +15,11 @@ namespace AbstractVsInterface
             checkName();
             checkaddress();
         }
-        public void checkName()
+        private void checkName()
         {
 
         }
-        public void checkaddress()
+        private void checkaddress()
         {
 
         }
