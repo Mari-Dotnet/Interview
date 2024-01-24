@@ -42,6 +42,10 @@
 	a. Singleton: create only one instance when the service is requested(logger we can use)
 	b. Scoped: create single instance for each request. Different request difference instance.
 	c. Transient: the instance is not shared at all.
+services.AddSingleton<IConfiguration>(Configuration);
+services.AddScoped<DbContext, ApplicationDbContext>();
+services.AddTransient<ILogger, ConsoleLogger>();
+
 11. What is middleware?
 	a. Middle ware is nothing but component that is executed on every request in the asp.net core application.
 12. What is kestrel? Kestrel is light weight webserver for .net core application.

@@ -1,0 +1,11 @@
+1.Area in mvc
+2.how to handle backround task in dot net core
+3.what is purpose of role authentication
+4.abstact factory pattern
+5.hostbuilder in dot net core
+6.what is use of identity server
+7.Blazor web assembly in dot net core
+8.what is use of linq
+9.what is use of head in http request
+10.AutoMapper use
+

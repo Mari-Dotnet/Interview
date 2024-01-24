@@ -64,10 +64,10 @@ public string name {get;set;}
 }
 -----------------------------------------------------
 4. four pillor of oops:
-abstraction: show only necesseary
+abstraction: show only necesseary (Abstraction is used for hiding the unwanted data and giving only relevant data.)
 polimorphisim: its act as differeent condidition(complie time (method overloading) / run time (method  overriding)	
 inheritance: parent child relationship
-encapsulation: hide complexity
+encapsulation: hide complexity(Encapsulation is hiding the code and data into a single unit to protect the data from outer world.)
 -----------------------------------------------------
 
 5. what is class and object
@@ -163,7 +163,7 @@ Public class employee:Manger
 		 Interface obj= new customer();
 	            Obj.Address();
 12. Operator overloading
-	a. Redefine the plus,minus and multi
+	a. Redefine the plus,minus and multi +, -, *, ==, etc
 	b. Custom overloading : using operator keyword
 13. Abstract class:
 	a. Partially defined parent class

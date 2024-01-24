@@ -5,6 +5,13 @@ using AbstractVsInterface;
 using System.Collections;
 using System.Threading;
 
+// Parent to child
+virtualoverride vde = new Overidden();
+vde.Description();
+
+//child
+Overidden vchild = new Overidden();
+vchild.Description();
 
 dervemethodhiding mdd = new dervemethodhiding();
 mdd.method();

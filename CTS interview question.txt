@@ -1,0 +1,104 @@
+public class A
+{
+ public int EmpId {get;set;}
+public string Name {get; set;}
+public virtual void PrintEmpId(int EmpId)
+  {
+    Console.Writeline("A" + EmpId.ToString());
+  }
+ public virtual void PrintName(string Name)
+  {
+    Console.Writeline("A" + Name);
+  }
+public void Test()
+ {
+  Console.Writeline("Test method");
+ }
+}
+public class B : A
+{
+public override void PrintEmpId(int EmpId)
+  {
+    Console.Writeline("B" + EmpId.ToString());
+  }
+public override void PrintName(string Name)
+  {
+    Console.Writeline("B" + Name);
+  }
+ public void Test()
+ {
+  Console.Writeline("Test method");
+ }
+}
+
+Main()
+{
+ A a = new B();
+a.PrintEmpId(200);
+B b = new B();
+b.PrintName("John");
+}
+
+
+public class sinleton{
+
+
+private sinleton(){
+
+}
+
+private static sinleton _instance;
+
+public static sinleton Instance;
+
+if(instance){
+
+Instance= new sinleton()
+}
+
+}
+
+
+with duplicaterecords(
+
+select name,salery, Row_number(over partition by name,salery) as duplicate from employee
+)
+
+delete from duplicaterecords where duplicate>1
+
+
+//dempartment top 3 
+
+with topthreedepart(
+
+select department, salery,Row_number(over partition by department order by salery desc) as topthree from employee
+)
+
+select * from topthreedepart where topthree<4
+
+
+
+// scenario:
+secondary owner raise any request is not auto approve 
+
+request status = pending stage 
+
+
+secondary owner raise any request is auto
+request stauats =approverd
+
+********************************************************************************************************************
+ 
+1.Optional parameter in c#
+2.concurency class
+3.same attribute, same action method name, same get type thi is possbile
+4.list vs dictionary which fast and why
+5.Azure funtion types
+6.how authentication work in API?
+
+
+
+
+
+
+
