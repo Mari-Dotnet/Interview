@@ -1,4 +1,8 @@
-
-BasicOopsConcepts/.vs/AbstractVsInterface/v17/.futdcache.v1
-BasicOopsConcepts/.vs/AbstractVsInterface/v17/.futdcache.v1
+bin
+obj
+packages
+.vs
+BasicOopsConcepts/.vs/AbstractVsInterface/DesignTimeBuild/.dtbcache.v2
 BasicOopsConcepts/.vs/AbstractVsInterface/v17/.suo
+Solid Design principle/SolidDesign/.vs/SolidDesign/v17/.suo
+Solid Design principle/SolidDesign/SolidDesign/LSP.cs
