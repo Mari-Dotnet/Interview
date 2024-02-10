@@ -278,7 +278,8 @@ Web API:
 15. Where is JWT token present?
 	a. Authorization: bearer(Key : value)
 	b. Its present in header.
- 
+16.what is the use of header in web api request?
+Headers can be used to transmit sensitive information such as authentication tokens, API keys, or personal information. It is important to ensure that this information is encrypted when transmitted over the network to prevent eavesdropping and tampering.
  
  
 Question In accenture?

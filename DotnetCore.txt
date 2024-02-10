@@ -124,3 +124,15 @@ services.AddTransient<ILogger, ConsoleLogger>();
 	b. After we can add session on service.AddSession() and app.UseSession().
 34. Explain model binding in asp.net core?
 		a. Maps the data in http request to controller action method parameters.
+35. what is use of host builder?
+	a. its provided some featur of the application
+	  a.dependency injection
+	  b.configuration=> appsetting.json and appsetting.{server}.json, user secrets, environment variables
+	  c.Logging
+36. configure webhost:
+	provided suport for http 
+        set kestral server as the web server
+	enable the iis integration
+
+
+           
