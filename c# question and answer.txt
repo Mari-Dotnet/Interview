@@ -232,3 +232,21 @@ var maxvlaus = map.FirstOrDefault(x => x.Value == map.Values.Max());
 47. what is use of  using keyword?
 	a.it's used for managing resources and importing namespaces.
 	b.using Statement for Resource Management especially for objects that implement the IDisposable interface.
+
+
+48. Concurrency in entity framework?
+	• When different user update the same data in same time.
+	• We can use  two type of logging:
+		○ Optimistic logging - Its only for Entity framework
+			§ Update con currency mode as fixed for particular column properties
+			§ If table have more than 50 column above method is not working so we can create column as "LastUpdated" and properties as  timestamp .
+		○ Pessimistic logging
+49. What is clientwins and storewins? This next part of concurrency isssue.
+	a. Clientwins means: whatever data user updated that data going to update on database.
+	b. Storewins menas: whatever data user updated that data not going to update on  database.
+	c. Sample code: below code when we write the catch block when concurrency exception occur.
+		i. ((IobjectcontextAdapter)context).Objectcontext(Refreshmode.clientwins,tablename);
+		ii. Db.savechanges();
+50. How to handle the when parent data is inserted to database and child request is get failed?
+	a.We can use "transaction scope" is when both record inserted successfully.
+	
