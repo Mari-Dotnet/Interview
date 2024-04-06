@@ -1,0 +1,10 @@
+1.Put vs post difference?
+2.how to perfromace optimization in sql server?
+3.when we use use more non-clustered index in table what will happen?
+scenario question:
+4.In our old application we are using SP with ADO dotnet logic.now we need to migrate the application into entityframe work, we can go with EF with ado.net or net only?
+5.we have three differenet textbox with three button with once we click the button values are increased? we can copy that url once the values changed then paste to the new window then what is values of the text box values?)(using singelon, transient,scoped)
+6.The api hit it will download the some file? what are the things we need to pass in header and return types?
+7.what is use service bus? if some queue valus are failed how to retrigged that queue?
+
+
