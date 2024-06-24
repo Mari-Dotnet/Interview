@@ -135,4 +135,55 @@ services.AddTransient<ILogger, ConsoleLogger>();
 	enable the iis integration
 
 
+	• What is difference b/w scoped vs transient
+		○ Transient : Create different object for dependent services for request
+		○ Scoped: Same object used for dependent services for request
+	• Async vs await
+		○ async and await work together to achieve non-blocking behaviour, making your .NET Core applications more efficient and responsive
+	• Exception handling:
+		○ Using  exceptionhandler middleware
+	• Use 
+		○ The Use extension method adds a middleware delegate defined in-line to the application’s request pipeline.
+	• Singe vs first which one is fast?
+		○  performance wise both are similar
+	• Type of locks in sql
+		○ Shared lock : select statement
+		○ Exclusive lock: insert,update,delete
+		○ Update lock: combination of shared and exclusive
+		○ Intent locks: child objects
+		○ Schema lock: altering  schema objects (tables,views,procedure) 
+		○ Bulk insert lock: bulk insert and bulk update
+		
+	• How to change the json result into XMl on dotnet core
+		○ In request header => add a "Accept" as "application/xml"
+		○ builder.Services.AddControllers().AddXmlDataContractSerializerFormatters();
+	• Cross Origin:
+		○ Cross origin is used to allow particular resource only allow our application.
+	• How to optimize store procedure?
+		○ SET NOCOUNT ON, you suppress these messages, reducing network traffic and improving performance.
+		○ Specify the column name on select statement
+		○ IF EXISTS (SELECT 1 FROM mytable)
+	• Entity Framework core Concurrency issue: Row version
+	• Entity Framework core AsnoTracking:
+		○ Entity framework tracking the data which we are read from the table
+		○ So we are update that record its throw some error record is tracked ,so we can avoid this error use Asnotracking on after table name.
+	• Entittyframework  rollback,Commit:
+		○ https://github.com/TechWebDots/AspNetCoreApp/blob/master/DataAccess/BookRepository.cs
+		○ IDbContextTransaction  using tx
+		○ tx = await _context.Database.BeginTransactionAsync()
+		○ Once record saved on the database => tx.Commit();
+		○ If any issues come we can use=>  tx.Rollback();
+	• Middleware:
+		○ Its used to build the blocks of the request pipeline
+	• When to use interface:
+		○ When method is there  but it can be implemented differently by independent derived class.
+		○ Manager for employee=> different manage for all employee
+	• When to use abstract?
+		○ Methods are defined and must be implemented in the same way in all derived class.
+		○ Dress colour for employee
+	○ Saga:
+		○  Orchestrates a series of transactions across different microservices. Each transaction can involve updating data in a specific microservice. If any transaction fails, compensating transactions are triggered to undo previous changes and maintain data consistency.
+	○ API Gateway Pattern:
+Acts as a single entry point for clients to access various microservices within your application.
+
            
