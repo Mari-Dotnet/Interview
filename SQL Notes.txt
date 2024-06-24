@@ -316,3 +316,20 @@ select FORMAT(GETDATE(),'dd/MM/yyyy') as dateformat --13/10/2023
 select FORMAT(GETDATE(),'dd/MM/yy') as dateformat --13/10/23
 select FORMAT(GETDATE(),'dd MMMM yy') as dateformat --13 October 23
 
+Query Optimization:
+		○ Set no count on => remove the message form when query execute
+		○ Isolation level:
+			§ Set Isolation level re un commited/ No lock
+		○ Missing Index=>
+		○ Scaler Function:
+		○ Covering index=> include help of index
+		○ Partition => splitting table data into multiple files
+		○ Indexing => retrieve the data quicker(create index indexname on table(columnae)
+		○ Replace with union to union all(there is no duplicate)
+		○ Select * instead of select column if requirement to use top 
+		○ Minimum use of distinct (to avoid )
+		○ != <> index not working use IS Not Equal 
+		○ Use If exist for record is present => don't use select count()
+		○ Use like operator wisely =>if start with a use "%a"
+Avoid multiple join => use CTE
+
