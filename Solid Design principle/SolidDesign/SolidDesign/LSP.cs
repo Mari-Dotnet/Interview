@@ -40,7 +40,7 @@ namespace SolidDesign
 
         
     }
-    // below mentioned calculatebonous is not applicable for contract employee
+    // below mentioned calculate bonous is not applicable for contract employee
     //in this case we can thow some exception for calcuatebonous
     //if some one create object for contractemploy and access the bonous its will thorw error.
     public class contracteployee : EmployeeLSP

@@ -250,3 +250,15 @@ var maxvlaus = map.FirstOrDefault(x => x.Value == map.Values.Max());
 50. How to handle the when parent data is inserted to database and child request is get failed?
 	a.We can use "transaction scope" is when both record inserted successfully.
 	
+51. string vs string builder?
+string:
+  string => its class of String(capital "S")
+  String alias is string(small "s" and capital "S")
+  eg: String is class
+  string str="test"; //its create object for str
+  str="test1"; // here again its create object for str and values are assigned( previous obj value move to carbage collection)
+  
+String Builder:
+ if we use heavy concordination use string builder
+ it will not creat new object for when you append the new values.
+ 
