@@ -1,0 +1,59 @@
+• Package:
+	○ Azure.messaging.ServiceBus
+• Asynchronous message service delivery to different system
+• At least once delivery of the message
+• Optional ordered delivery of message
+• FIFO=> first in first out
+• Queues:
+	○ One sender and one receiver
+	○ One to one communication
+	○ Message are send to queue and then received and processed by the receiving system
+• Topics:
+	○ One sender multiple receiver/ multiple sender and multiple receiver
+	○ Enable to one to many communication by allowing multiple application to subscribe to a specific topic
+	○ Message send all the subscription
+• Service bus client=> create a connection to service bus
+• Service bus sender => to send message to service bus
+• Service bus receiver => receive the message from the queue or subscription
+• Service bus processor=> create service bus message/queue 
+• Creation=>
+	○ Azure=> service bus => provide the details
+	○ Shared access policies=> connection string
+		§ Choose manage => admins access
+	○ Queues:
+		§ Retry count=> we can set =>3 
+		§ After 3 times it will move to dead letter queue
+	○ Topics:
+• Message operation:
+	○ Complete: message processed successfully.
+	○ Abandon: if message go back to queue
+	○ Defer: if you want consume the  message the later
+		§ Servicebusreceiver receiver=client.createreceiver("QueueName")
+		§ ServicebusReceivedmessage receiver=await receiver.receivedmessageAsync()
+		§ Defer the message: receiver.defermessageAsync(message)
+		§ How to read defer message=> receiver.DefermessageAsycs(message.sequencenumber)
+	○ Dead letter: if a message cannot be processed due to some error that cannot be resolved, then receiver call the dead letter.
+		§ Recevicer the message and if any error we can pass to deadletter
+		§ Receiver.DeadlettermessageAsync(message,"Reason","description");
+	○ Peek message: Read the message from service bus and message not deleted (eg: tempdata peek)
+		§ We can provide the option on receiver => Receive mode = Servicebusreceivemode.peeklock
+		§ Then how to read using peak.messageAsync();
+• Service bus processor: 13. Service Bus Processor in Azure Service Bus
+	○ Connection
+	○ Create sender
+	○ Send message
+	○ Create processor=> create processor=> Autocomplet.message,maxconcurrentcalls=1
+	○ Configure message
+	○ Configure handler
+	○ Configure error
+	○ Start processing
+• Delivery count=> max delivery count => when its reached max count it will move to dead letter 
+• Transaction:
+	○ Using transactionScope
+	○  Complete the status
+	○ Rollback the transaction=>if any exception occur
+• Cross entity transaction: saga pattern
+	○ Enable cross entity transactions = true means => sender and receiver is different in same service bus
+• Peek Lock: default 30 seconds
+	○ When receive the message from receiver it will lock 30 seconds
+	○  then second receiver take next message from queue
