@@ -317,19 +317,49 @@ select FORMAT(GETDATE(),'dd/MM/yy') as dateformat --13/10/23
 select FORMAT(GETDATE(),'dd MMMM yy') as dateformat --13 October 23
 
 Query Optimization:
-		○ Set no count on => remove the message form when query execute
-		○ Isolation level:
-			§ Set Isolation level re un commited/ No lock
-		○ Missing Index=>
-		○ Scaler Function:
-		○ Covering index=> include help of index
-		○ Partition => splitting table data into multiple files
-		○ Indexing => retrieve the data quicker(create index indexname on table(columnae)
-		○ Replace with union to union all(there is no duplicate)
-		○ Select * instead of select column if requirement to use top 
-		○ Minimum use of distinct (to avoid )
-		○ != <> index not working use IS Not Equal 
-		○ Use If exist for record is present => don't use select count()
-		○ Use like operator wisely =>if start with a use "%a"
+Set no count on => remove the message form when query execute
+Isolation level:
+  Set Isolation level re un commited/ No lock
+Missing Index=>
+Scaler Function:
+Covering index=> include help of index
+Partition => splitting table data into multiple files
+Indexing => retrieve the data quicker(create index indexname on table(columnae)
+Replace with union to union all(there is no duplicate)
+Select * instead of select column if requirement to use top 
+Minimum use of distinct (to avoid )
+!= <> index not working use IS Not Equal 
+Use If exist for record is present => don't use select count()
+Use like operator wisely =>if start with a use "%a"
 Avoid multiple join => use CTE
+
+
+
+Temp table:
+Temp tables are created in the runtime and these tables are physically created in the tempdb database.
+Temp tables are similar to normal tables and also have constraints, keys, indexes, etc. We can perform all operations in the temp table like a normal table.
+The name of the temp table can have a maximum of 116 characters.
+The structure of temp table can be altered after creating it.
+You cannot use temp tables in User Defined Functions (UDF).
+If the size of the temporary data is huge (more than 100 rows).
+
+
+Temp Variable:
+If you don’t want to alter the table structure after creating it.
+Table variable is a special kind of data type and is used to store the result set. 
+The scope of temp variable is limited to the current batch and current Stored Procedure. It will delete once comes out the batch (Ex. Stored Procedure).
+We cannot create non-clustered index. It can only have indexes that are automatically created with PRIMARY KEY and UNIQUE constraints as part of the creation
+Temp Variable is also created in the tempdb database but not the memory.
+To store the temporary data in user-defined functions (UDF), stored procedures, and query batches.
+We cannot use "Select * into"  statement for temp variable to store the values.
+If the volume of data is less, say less than 100 rows. 
+
+
+CTE:
+It is used to hold the temporary result set or result of complex sub-query.
+The scope of CTE is limited to the current query.
+CTE improves readability and ease in the maintenance of complex queries and sub-queries. 
+
+
+
 
