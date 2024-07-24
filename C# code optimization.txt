@@ -1,0 +1,40 @@
+• EF core Optimization
+		○ AsNotracking() => when only retrieve the record
+		○ Include=> two table data get 
+		○ AsSplitQuery => more includes() table
+• Scenario question with best practice:
+		○ Method return list/collection values do not return null  values we can  return Ienumerable.empty<model>()
+		○ Firstordefault() we should check null condition
+		○ String.IsnullorEmpty() use for null or empty values
+		○ Use using statement code for  to dispose the object  automatically
+		○ Redirrecttoaction we can use nameof(actionname)
+        RedirectToAction(nameof(actioname));
+		○ Check if modelstate is valid 
+		○ Try catch block  need to add
+		○ Base.onmodelcreating(base) for onmodelcreation method when we use identity db context
+		○ In foreach loop not use the dbcontext data retrieve in this case we can avoid the many data base calls.
+		○ Combine two table of record using include method  
+		○ Use AsNoTracking() when retrieve some records
+		○ Hidden fields in same place on view
+		○ Use is not null or is null to check model values
+		○ Not use model == null or model !=null
+		○ ValidateNever=> it use for some parameter no need to valid
+		○ When we use more includes on entity framework use AsSplitquery()
+		○ Multiple await in service and those are void method
+			§ Await mailsend()
+			§ Await cleanrecords()
+			§ Await updaterecords() 
+			§ In above three method will  run one after another so it will take 2 min
+			§ To avoid this we can use await  task.whenall( await mailsend,)  this way all task run parallel and complete 1 min
+		○ If use AsNoTracking() in entity and update the record that is not updated on databse
+		○ "Dbcontext.employee" this way retrieve the record it will execute multiple times after add some operations like "average" we can use"Dbcontext.employee.tolist()"
+		○ Create class "exceptionmiddleware" and InvokeAsync(httpContext context)  method 
+			§ Private variable declare RequestDelegate 
+			§ Add that class into app.usemiddleware<exceptionmiddleware>()
+		○ "Return null" is bad practice for Await service method 
+			§ Await service.updaterecord()
+			§ It throw object reference error use "return Task.fromResult<object>(null)"
+		○  update same data in all records  => use "ExecuteUpdateAsync(x=>x.setProperty(i=>i.column,"value"))
+		○ In for loop we can use "emplist.count" not "emplist.count()" this for add additional filters
+		○ Array are reference variable not values type if pass any method not use ref
+"Firstname ==null "Check null instead of use firstname ??= 'N/A'
