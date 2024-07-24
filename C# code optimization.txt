@@ -8,7 +8,7 @@
 		○ String.IsnullorEmpty() use for null or empty values
 		○ Use using statement code for  to dispose the object  automatically
 		○ Redirrecttoaction we can use nameof(actionname)
-        RedirectToAction(nameof(actioname));
+        		RedirectToAction(nameof(actioname));
 		○ Check if modelstate is valid 
 		○ Try catch block  need to add
 		○ Base.onmodelcreating(base) for onmodelcreation method when we use identity db context
