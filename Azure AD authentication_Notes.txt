@@ -1,0 +1,103 @@
+	• Course name: Learn how to authenticate API and .NET Web Application with Azure Active Directory and B2C (external logins)
+	• Azure Ad :
+		○ Azure Ad : Cloud based identity service and manager user and device and applications
+		○ Github App URL:  https://github.com/bhrugen/AzureADProject
+	• Azure Ad creation:
+		○ Create account on azure portal:
+		○ Open "Azure active directory"
+			§ Two tenant 
+				□ Azure active directory
+				□ Azure active b2c directory
+	• Azure Ad web:
+		○ Create dotnet core web MVC application
+		○ Add authorize  attribute on action method the access that method its throw error
+		○ App Registration:
+			§ Create Ad app in azure
+			§ Choose options azure ad single tenant
+			§ And choose web and provide the https://localhosy:4000/signin-oidc
+			§ Logout ORL: https://localhosy:4000/signout-oidc
+			§ Choose=> ID token implicit flow
+		○ Configure Microsoft login in Configure services:
+			§ Get azure app id and Oauth end point v2 
+			§ Package:
+				□ Microsoft.aspdotnetcore.authentication.openidConnnect
+				□ Microsoft.identity.web
+			§ Service.addauthentication(options=>{
+				□ Options.defaultscheme=cookieAuthenticationDefaults.Authenticationscheme;
+				□ Option.Defaultchaallangescheme=openIdDefaults.AuthenticationSchemel
+				
+				□ }).Addcookie(cookieAuthenticationDefaults.Authenticationscheme).
+				□ .AddOpenIdconnect( openIdconnectDefault.AuthenticationScheme, options=>{
+				□ Options.signinscheme=cookieAuthenticationDefaults.authenticationscheme;
+				□ Options.Authority= "<oauthendpoint v2.0>" ;
+				□ Options.clienid="<appId>";
+				□ Options.responseType="Id_token";
+				□ Options.savetoken=true; // save the token on header
+				□ })
+			§ App.useAuthentication() // need to add on middleware
+		○ User instance provide the details of logged in user details
+		○ Azure Ad and B2C:
+			§ Code flow used server side flow:
+			§ Create secret for app 
+			§ Change the service code:
+				□ Change the response type  from "id_token" to "code"
+				□ Options.clientsecret="<clientsecret">
+	• Azure Ad API:
+		○ Create dot net api core application:
+		○ Create App for AD app:
+			§ Don't provide the redirect URL because its API applications
+			§ Click on "Expose on API" menu  and set "application Id URI"
+			§ Add scope and provide the name
+		○ Changes In  Web  Azure ad 
+			§ App click "Api permission menu" to give permission on our API ad app
+			§ In web app service class:
+			§ options.Scope.Add("api://de626dc0-5cbe-4f4b-9f8e-3148b9288f7b/AdminAccess"); 
+			§ In above scope is API  ad app of "expose an API"
+		○ Package for token verification:
+			§ Microsoft.aspdotnetcore.authentication.jwtbearer
+		○ Code for service:
+		services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+		                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
+		                {
+		                    options.Authority = "https://login.microsoftonline.com/fbffd135-c37d-4b61-8c05-a641ba181d5c/v2.0";
+		                    options.Audience = "api://de626dc0-5cbe-4f4b-9f8e-3148b9288f7b";
+		                    //options.TokenValidationParameters.ValidIssuer = "https://sts.windows.net/fbffd135-c37d-4b61-8c05-a641ba181d5c/";
+		                   options.TokenValidationParameters.ValidateIssuer= false;
+		                });
+		○ When we add token validate parameter because token have that issuer values
+	• Azure Ad B2c Web: business to consumer
+		○ We can login email for follow below user flow 
+			§ We can create user flow on b2c active directory
+		○ Create Azure b2c on azure:
+			§ Search b2c resource and create
+			§ Upto 50k active user free
+			§ Once Azure b2c is created logout and login again otherwise not able to see
+			§ Switch the b2c directory on user profile => right top
+		○ Create ad app for this application 
+			§ No need to select Id token, access token on ad app config
+			§ In this case it code flow
+		○ Create user flow:
+			§ Signin in and sign up => choose recommended version
+			§ User flow name as "Policy name"
+		○ Authorization :
+			§ In configure  service code same as web application code
+			§ In configure  Service we can add the  scope as client id because this web application
+			§ Open Ad app  and click on end points 
+			§ Get the URL of the oauth 2.0 authorozation end point 
+				□ In url we can provide the user flow policy name
+		○ B2C Facebook Login:
+			§ Open user flow => identity providers=> Add facebook
+			§ In facebook app=> make it as live
+			§ Open Facebook developer => open my apps=> choose consumer apps
+			§ Open that app => face book login(click on setup)
+			§ Click Setup web project
+				□ Open Azre b2c directory=> Identity providers => facebook
+				□ Copy the origin url and paste it on facebook web
+			§ Setting tab on FB app:
+				□ Valid call url get it from above steps but copy the callback url and paste it on fb app
+			§ Azure b2c directory identity provide updates:
+				□ Click on face book and update the client id and client secret
+		○ How to set role in b2c:
+			§ In user flow=> Attributes => add new attributes
+			§ User flow=>page layouts = > we can add multiple values on user role attribute
+			§ In page layout we can customize the login page input controls
