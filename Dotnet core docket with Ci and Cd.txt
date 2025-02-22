@@ -1,0 +1,170 @@
+Docker file for dotnet core:
+
+# Use official .NET Core SDK for build
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /app
+
+# Copy project files and restore dependencies
+COPY *.csproj ./
+RUN dotnet restore
+
+# Copy all files and build application
+COPY . ./
+RUN dotnet publish -c Release -o out
+
+# Use ASP.NET Core runtime for production
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
+WORKDIR /app
+COPY --from=build /app/out .
+
+# Expose the application port
+EXPOSE 80
+
+# Start the application
+ENTRYPOINT ["dotnet", "YourApp.dll"]
+
+
+deployment ACR : Create Kubernetes Deployment and Service YAML
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yourapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: yourapp
+  template:
+    metadata:
+      labels:
+        app: yourapp
+    spec:
+      containers:
+        - name: yourapp
+          image: YourACRName.azurecr.io/yourapp:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "Production"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: yourapp-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: yourapp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+	  
+	  
+CI Pipeline (ci-pipeline.yml)
+trigger:
+- main  # Runs on every push to 'main' branch
+
+variables:
+  acrName: 'youracrname'   # Azure Container Registry name
+  imageName: 'yourapp'     # Docker image name
+  containerRegistry: 'youracrname.azurecr.io'
+  tag: '$(Build.BuildId)'  # Unique tag for each image build
+
+stages:
+- stage: Build
+  displayName: 'Build and Push Docker Image'
+  jobs:
+  - job: BuildAndPush
+    displayName: 'Build and Push Docker Image to ACR'
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:
+    - task: Docker@2
+      displayName: 'Login to ACR'
+      inputs:
+        command: 'login'
+        containerRegistry: '$(acrName)'
+
+    - task: Docker@2
+      displayName: 'Build Docker Image'
+      inputs:
+        command: 'build'
+        repository: '$(containerRegistry)/$(imageName)'
+        dockerfile: 'Dockerfile'
+        tags: '$(tag)'
+
+    - task: Docker@2
+      displayName: 'Push Docker Image to ACR'
+      inputs:
+        command: 'push'
+        repository: '$(containerRegistry)/$(imageName)'
+        tags: '$(tag)'
+
+    - publish: $(Build.ArtifactStagingDirectory)
+      artifact: 'manifests'
+
+
+CD Pipeline (cd-pipeline.yml):
+trigger:
+- none  # This pipeline runs manually or via a release trigger
+variables:
+  acrName: 'youracrname'
+  imageName: 'yourapp'
+  aksCluster: 'yourakscluster'
+  resourceGroup: 'your-resource-group'
+  containerRegistry: 'youracrname.azurecr.io'
+  tag: '$(Build.BuildId)'  # Use the tag from CI pipeline
+
+stages:
+- stage: Deploy
+  displayName: 'Deploy to AKS'
+  jobs:
+  - job: Deploy
+    displayName: 'Deploy Application to AKS'
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:
+    - task: AzureCLI@2
+      displayName: 'Login to Azure and Configure AKS'
+      inputs:
+        azureSubscription: 'YourAzureSubscription'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          az aks get-credentials --resource-group $(resourceGroup) --name $(aksCluster)
+
+    - task: Kubernetes@1
+      displayName: 'Update Kubernetes Deployment'
+      inputs:
+        connectionType: 'Kubernetes Service Connection'
+        kubernetesServiceConnection: 'YourK8sServiceConnection'
+        command: 'set'
+        arguments: "image deployment/yourapp-deployment yourapp=$(containerRegistry)/$(imageName):$(tag)"
+
+    # Wait for rollout status
+    - script: |
+        kubectl rollout status deployment/yourapp-deployment --timeout=90s
+      displayName: 'Check Deployment Status'
+
+    # Rollback if deployment fails
+    - script: |
+        echo "Deployment failed! Rolling back to the previous version..."
+        kubectl rollout undo deployment yourapp-deployment
+      condition: failed()
+      displayName: 'Rollback to Previous Deployment'
+
+
+
+
+Notes:
+
+Aci: Azure container instance
+AKS: Azure kubernate service
+
+ACI does not support features like auto-scaling, rolling updates, rollbacks, service discovery, and load balancing.
+AKS provides full Kubernetes orchestration, which includes rollback strategies, blue-green deployments, and zero-downtime upgrades.
