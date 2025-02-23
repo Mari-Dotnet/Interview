@@ -168,3 +168,22 @@ AKS: Azure kubernate service
 
 ACI does not support features like auto-scaling, rolling updates, rollbacks, service discovery, and load balancing.
 AKS provides full Kubernetes orchestration, which includes rollback strategies, blue-green deployments, and zero-downtime upgrades.
+
+Kubernetes deployment we need two files located under the manifest folder.
+	1.deployment.yml	
+	2.Service.yml
+in deployment file metadata name and service file spec name both are same 
+structure for above files:
+ apiVersion: v1 (version "V" is capitalletter)
+ Kind: Pod, Deployment,Service (all words starting letter is capital)
+ metadata:
+    name: dotnetcore
+Spec:
+  container:
+  -  name: image name
+     imagename: Azure container register with image name 
+  ports:
+  -  containerPort: 80 ("P" start with capital)
+     
+
+	
